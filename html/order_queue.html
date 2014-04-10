@@ -1,1 +1,157 @@
-order queue
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   <!--  <meta name="viewport" content="user-scalable=no, width=device-width" />
+ -->
+    <!-- Eliminate url and button bars if added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+   <!-- Choose how to handle the phone status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <!-- Jumbotron template CSS  -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/order_queue.css" rel="stylesheet">
+
+     <link href="../css/default.css" rel="stylesheet">
+
+    <!-- Remember to change this! -->
+    <title>Order Queue</title>
+  </head>
+
+<body ontouchmove="BlockMove(event);">
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Barkeeper</a>
+            </div>
+            <div class="navbar-collapse collapse in" style="height: auto;">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="./id_check.html">Check Id</a></li>
+                <li><a href="./choose_mode.html">Switch Mode</a></li>
+                <li><a href="#">Logout</a></li>
+
+                <!-- for use if we want dropdown in menu-->
+
+                
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="container">
+    	<div class="jumbotron" id="queue">
+        	<h1>Order Queue</h1>
+   		</div>
+
+    </div>
+
+ <!-- 	<div class="navbar navbar-default navbar-fixed-bottom span12">
+		<center>
+			<a class="btn btn-lg btn-success" href="./order_queue.html" role="button">Stock</a>
+			<a class="btn btn-lg btn-success" href="./order_queue.html" role="button">Switch to Serving</a>
+			<a class="btn btn-lg btn-success" href="./order_queue.html" role="button">IDs</a>
+		</center>
+	</div> -->
+
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+ 
+    <script>
+      $('#queue').disableSelection();
+    	var numdrinks=0;
+    	function addDrink(name, ingredients){
+    		numdrinks+=1;
+			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><h2>"+name+"</h2><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
+    		);
+    		var drinkname="#drink"+numdrinks;
+    		var collapsename="#collapse"+numdrinks;
+    		var spacername="#spacer"+numdrinks;
+    		$(collapsename).toggle();
+    		//$(drinkname).dblclick(function(event){
+    		//	event.preventDefault;
+    		//	$(collapsename).toggle();
+    		//});
+    		
+    		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
+    		$(drinkname).on("swiperight",function(){
+    			 goForIt=false;
+           if ($(drinkname).hasClass("mine")){
+              this.remove();
+   				   $(spacername).remove();
+           }
+  			});
+  			var goForIt=true;
+  			$(drinkname).on("swipeleft",function(){
+  				goForIt=false;
+   				 $(collapsename).toggle();
+
+  			});
+  			$(drinkname).click(function(event){
+    			event.preventDefault;
+    			if (goForIt){
+            if ($(drinkname).hasClass("activeDrink")&&!$(drinkname).hasClass("notMineDrink")){
+    				  $(drinkname).toggleClass('activeDrink mine');
+            }
+            else if ($(drinkname).hasClass("mine")){
+              $(drinkname).toggleClass('activeDrink mine');
+            }
+    			}
+    			goForIt=true;
+    		});
+
+    	}
+    	function notmine(drinkNum){
+    		$("#drink"+drinkNum).toggleClass('activeDrink notMineDrink');
+    	}
+    	function removeDrink(drinkNum){
+    		$("#drink"+drinkNum).remove();
+    		$("#spacer"+drinkNum).remove();
+    	}
+    </script>
+ </body>
+</html>
