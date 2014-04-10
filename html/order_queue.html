@@ -53,6 +53,7 @@
     </div> <!-- /container -->
         <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
+
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
@@ -68,19 +69,30 @@
     		var collapsename="#collapse"+numdrinks;
     		var spacername="#spacer"+numdrinks;
     		$(collapsename).toggle();
-    		$(drinkname).dblclick(function(event){
-    			event.preventDefault;
-    			$(collapsename).toggle();
-    		});
-    		$(drinkname).click(function(event){
-    			event.preventDefault;
-    			$(drinkname).toggleClass('activeDrink mine');
-    		});
+    		//$(drinkname).dblclick(function(event){
+    		//	event.preventDefault;
+    		//	$(collapsename).toggle();
+    		//});
+    		
     		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
-    		$(drinkname).on("swipe",function(){
+    		$(drinkname).on("swiperight",function(){
+    			 goForIt=false;
    				 $(drinkname).remove();
    				 $(spacername).remove();
   			});
+  			var goForIt=true;
+  			$(drinkname).on("swipeleft",function(){
+  				goForIt=false;
+   				 $(collapsename).toggle();
+
+  			});
+  			$(drinkname).click(function(event){
+    			event.preventDefault;
+    			if (goForIt){
+    				$(drinkname).toggleClass('activeDrink mine');
+    			}
+    			goForIt=true;
+    		});
 
     	}
     	function notmine(drinkNum){
@@ -90,7 +102,6 @@
     		$("#drink"+drinkNum).remove();
     		$("#spacer"+drinkNum).remove();
     	}
-
     </script>
- 
+ </body>
 </html>
