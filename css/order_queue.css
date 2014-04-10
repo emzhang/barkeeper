@@ -1,0 +1,12 @@
+.activeDrink {
+	background-color:red;
+	color: black;
+}
+.notMineDrink {
+	background-color:grey;
+	color: black;
+}
+.mine{
+	background-color:orange;
+	color: black;
+}

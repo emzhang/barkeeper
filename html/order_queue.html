@@ -26,14 +26,71 @@
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
     <!-- Remember to change this! -->
+    <link rel="stylesheet" type="text/css" href="../css/order_queue.css" />
+
     <title>Barkeeper Template</title>
   </head>
   <body>
-    <h1>This is the order Queue div</h1>
-    <!-- Loaded at the bottom of the page for faster page loads -->
+  	<div class="container">
+    <div class="jumbotron" id="queue">
+    	
+        <h1>Order Queue</h1>
+
+        <!-- <div class="panel-heading span12 activeDrink"  id="drink-one">
+        	<h2> Gin and Tonic </h2>
+   			<div id="collapseOne" class="panel-collapse collapse in rectangle span12">
+      			<div class="panel-body"> Gin and Tonic Water </div>
+    		</div>
+    	</div>
+    	<div class="panel-heading span12"></div> -->
+
+
+
+
+
+   	</div>
+
+    </div> <!-- /container -->
+        <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  </body>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+ 
+    <script>
+    	var numdrinks=0;
+    	function addDrink(name, ingredients){
+    		numdrinks+=1;
+			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><h2>"+name+"</h2><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
+    		);
+    		var drinkname="#drink"+numdrinks;
+    		var collapsename="#collapse"+numdrinks;
+    		var spacername="#spacer"+numdrinks;
+    		$(collapsename).toggle();
+    		$(drinkname).dblclick(function(event){
+    			event.preventDefault;
+    			$(collapsename).toggle();
+    		});
+    		$(drinkname).click(function(event){
+    			event.preventDefault;
+    			$(drinkname).toggleClass('activeDrink mine');
+    		});
+    		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
+    		$(drinkname).on("swipe",function(){
+   				 $(drinkname).remove();
+   				 $(spacername).remove();
+  			});
+
+    	}
+    	function notmine(drinkNum){
+    		$("#drink"+drinkNum).toggleClass('activeDrink notMineDrink');
+    	}
+    	function removeDrink(drinkNum){
+    		$("#drink"+drinkNum).remove();
+    		$("#spacer"+drinkNum).remove();
+    	}
+
+    </script>
+ 
 </html>
