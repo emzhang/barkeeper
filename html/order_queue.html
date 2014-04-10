@@ -37,7 +37,7 @@
     <title>Order Queue</title>
   </head>
 
-  <body ontouchmove="BlockMove(event);">
+<body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -81,7 +81,7 @@
 
       </div>
     </div>
-      <div class="container">
+    <div class="container">
     	<div class="jumbotron" id="queue">
         	<h1>Order Queue</h1>
    		</div>
@@ -102,6 +102,7 @@
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
  
     <script>
+      $('#queue').disableSelection();
     	var numdrinks=0;
     	function addDrink(name, ingredients){
     		numdrinks+=1;
@@ -119,8 +120,10 @@
     		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
     		$(drinkname).on("swiperight",function(){
     			 goForIt=false;
-   				 $(drinkname).remove();
-   				 $(spacername).remove();
+           if ($(drinkname).hasClass("mine")){
+              this.remove();
+   				   $(spacername).remove();
+           }
   			});
   			var goForIt=true;
   			$(drinkname).on("swipeleft",function(){
@@ -131,7 +134,12 @@
   			$(drinkname).click(function(event){
     			event.preventDefault;
     			if (goForIt){
-    				$(drinkname).toggleClass('activeDrink mine');
+            if ($(drinkname).hasClass("activeDrink")&&!$(drinkname).hasClass("notMineDrink")){
+    				  $(drinkname).toggleClass('activeDrink mine');
+            }
+            else if ($(drinkname).hasClass("mine")){
+              $(drinkname).toggleClass('activeDrink mine');
+            }
     			}
     			goForIt=true;
     		});
