@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+
+    <!-- Eliminate url and button bars if added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+   <!-- Choose how to handle the phone status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <!-- Jumbotron template CSS  -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- Remember to change this! -->
+    <title>Barkeeper Template</title>
+
+    <style type="text/css">
+      input[type="number"] {
+        width: 40px;
+      }
+
+      .ingredients {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <h3>Current order</h3>
+            <span id="orders"></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveDrinks">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="drinks">
+      <div class="list-group">
+        <!-- TODO: replace with actual drink names -->
+      </div>
+    </div>
+    <!-- Loaded at the bottom of the page for faster page loads -->
+    <!-- Any new JS files should also be loaded here! -->
+
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/drinks.js"></script>
+    
+    <script type="text/javascript">
+      $(function(){
+
+
+        var makeID = function(){
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for( var i=0; i < 5; i++ )
+              text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
+        };
+
+        for(var drink in drinks){
+          var ingredients = drinks[drink];
+          console.log(ingredients);
+
+          var drinkRow = $("<a class='list-group-item'></a>");
+          $(drinkRow).html(drink);
+          $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
+          $(".list-group").append(drinkRow);
+        }
+
+        $("a").attr("data-toggle", "modal");
+        $("a").attr("data-target","#myModal");
+        $("a").on("click", function(){
+          var ID = makeID();
+
+          var drink = $(this).html();
+
+          if( $("#orders:contains('" + drink + "')").length === 0){
+            console.log(drink);
+            var lineItem = $("<div></div>");
+
+            var drinkName = $("<label>" +$(this).html()+ "</label>");
+            lineItem.append(drinkName);
+            var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
+            numField.attr("id", ID);
+            
+            var addBtn = $("<button>+</button>");
+            addBtn.button().click(function(){
+              var numDrinks = $("#" + ID).val();
+              numDrinks++;
+              $("#" + ID).val(numDrinks);
+            });
+              
+            var decBtn = $("<button>-</button>");
+            decBtn.button().click(function(){
+              var numDrinks = $("#" + ID).val();
+              numDrinks--;
+              numDrinks = Math.max(0, numDrinks);
+              $("#" + ID).val(numDrinks);
+            });
+
+            lineItem.append(decBtn);
+            lineItem.append(numField);
+            lineItem.append(addBtn);
+            
+            $("#orders").append(lineItem);
+          }
+        });
+
+        $("#saveDrinks").on("click", function(){
+          $.each($("#orders > div"), function(index, element){
+            // TODO: clean up the string from .html();
+            drinks[$(element).find("label").html().trim()] = $(element).find("input").val();
+          });
+          console.log(drinks);
+          console.log( JSON.stringify(drinks));
+
+          window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
+        });
+      });
+    </script>
+  </body>
+</html>
