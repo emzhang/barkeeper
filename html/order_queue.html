@@ -23,6 +23,7 @@
     <link rel="shortcut icon" href="../assets/favicon.ico">
 
     <!-- Bootstrap CSS  -->
+     <link href="../css/bootstrap-glyphicons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/default.css">
     <!-- Jumbotron template CSS  -->
@@ -40,7 +41,6 @@
 <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
       <div class="container">
-
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -81,11 +81,11 @@
 
       </div>
     </div>
+
     <div class="container">
-    	<div class="jumbotron" id="queue">
+    	<div class="jumbotron " id="queue">
         	<h1>Order Queue</h1>
    		</div>
-
     </div>
 
  <!-- 	<div class="navbar navbar-default navbar-fixed-bottom span12">
@@ -106,11 +106,12 @@
     	var numdrinks=0;
     	function addDrink(name, ingredients){
     		numdrinks+=1;
-			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><h2>"+name+"</h2><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
+			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><div class='row'><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
     		);
     		var drinkname="#drink"+numdrinks;
     		var collapsename="#collapse"+numdrinks;
     		var spacername="#spacer"+numdrinks;
+        var buttonname="#btn"+numdrinks;
     		$(collapsename).toggle();
     		//$(drinkname).dblclick(function(event){
     		//	event.preventDefault;
@@ -126,12 +127,13 @@
            }
   			});
   			var goForIt=true;
-  			$(drinkname).on("swipeleft",function(){
+  			$(buttonname).click(function(event){
   				goForIt=false;
    				 $(collapsename).toggle();
 
   			});
   			$(drinkname).click(function(event){
+          console.lo
     			event.preventDefault;
     			if (goForIt){
             if ($(drinkname).hasClass("activeDrink")&&!$(drinkname).hasClass("notMineDrink")){
