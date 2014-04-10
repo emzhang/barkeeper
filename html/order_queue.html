@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <meta name="viewport" content="user-scalable=no, width=device-width" />
-
+   <!--  <meta name="viewport" content="user-scalable=no, width=device-width" />
+ -->
     <!-- Eliminate url and button bars if added to home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
@@ -18,23 +18,29 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
 
     <!-- Bootstrap CSS  -->
+     <link href="../css/bootstrap-glyphicons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <!-- Remember to change this! -->
-    <link rel="stylesheet" type="text/css" href="../css/order_queue.css" />
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/order_queue.css" rel="stylesheet">
 
-    <title>Barkeeper Template</title>
+     <link href="../css/default.css" rel="stylesheet">
+
+    <!-- Remember to change this! -->
+    <title>Order Queue</title>
   </head>
-  <body>
-  	<body ontouchmove="BlockMove(event);">
+
+<body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
       <div class="container">
-
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -52,6 +58,10 @@
                 <li><a href="./id_check.html">Check Id</a></li>
                 <li><a href="./choose_mode.html">Switch Mode</a></li>
                 <li><a href="#">Logout</a></li>
+
+                <!-- for use if we want dropdown in menu-->
+
+                
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -71,11 +81,11 @@
 
       </div>
     </div>
-  	<div class="container">
-    	<div class="jumbotron" id="queue">
+
+    <div class="container">
+    	<div class="jumbotron " id="queue">
         	<h1>Order Queue</h1>
    		</div>
-
     </div>
 
  <!-- 	<div class="navbar navbar-default navbar-fixed-bottom span12">
@@ -92,14 +102,16 @@
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
  
     <script>
+      $('#queue').disableSelection();
     	var numdrinks=0;
     	function addDrink(name, ingredients){
     		numdrinks+=1;
-			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><h2>"+name+"</h2><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
+			$("#queue").append("<div class=\"panel-heading span12 activeDrink\"  id=drink"+numdrinks+"><div class='row'><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div>"
     		);
     		var drinkname="#drink"+numdrinks;
     		var collapsename="#collapse"+numdrinks;
     		var spacername="#spacer"+numdrinks;
+        var buttonname="#btn"+numdrinks;
     		$(collapsename).toggle();
     		//$(drinkname).dblclick(function(event){
     		//	event.preventDefault;
@@ -109,19 +121,27 @@
     		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
     		$(drinkname).on("swiperight",function(){
     			 goForIt=false;
-   				 $(drinkname).remove();
-   				 $(spacername).remove();
+           if ($(drinkname).hasClass("mine")){
+              this.remove();
+   				   $(spacername).remove();
+           }
   			});
   			var goForIt=true;
-  			$(drinkname).on("swipeleft",function(){
+  			$(buttonname).click(function(event){
   				goForIt=false;
    				 $(collapsename).toggle();
 
   			});
   			$(drinkname).click(function(event){
+          console.lo
     			event.preventDefault;
     			if (goForIt){
-    				$(drinkname).toggleClass('activeDrink mine');
+            if ($(drinkname).hasClass("activeDrink")&&!$(drinkname).hasClass("notMineDrink")){
+    				  $(drinkname).toggleClass('activeDrink mine');
+            }
+            else if ($(drinkname).hasClass("mine")){
+              $(drinkname).toggleClass('activeDrink mine');
+            }
     			}
     			goForIt=true;
     		});
