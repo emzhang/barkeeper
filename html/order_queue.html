@@ -95,7 +95,7 @@
 			<a class="btn btn-lg btn-success" href="./order_queue.html" role="button">IDs</a>
 		</center>
 	</div> -->
-
+    <script tyle="text/javascript" src="../js/drinks.js"></script>
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
@@ -153,7 +153,10 @@
     	function removeDrink(drinkNum){
     		$("#drink"+drinkNum).remove();
     		$("#spacer"+drinkNum).remove();
-    	}
+      }
+      $(document).ready(function() {
+        jQuery.each( drinks, function( i, val ) {addDrink(i,val);});;
+    	});
     </script>
  </body>
 </html>
