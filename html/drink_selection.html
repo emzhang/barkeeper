@@ -184,21 +184,21 @@
             var drinkName = $("<label>" +$(this).html()+ "</label>");
             lineItem.append(drinkName);
             var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
-            numField.attr("id", ID);
+            numField.attr("id", ID+"_num");
             
             var addBtn = $("<button>+</button>");
             addBtn.button().click(function(){
-              var numDrinks = $("#" + ID).val();
+              var numDrinks = $("#" + ID+"_num").val();
               numDrinks++;
-              $("#" + ID).val(numDrinks);
+              $("#" + ID+"_num").val(numDrinks);
             });
               
             var decBtn = $("<button>-</button>");
             decBtn.button().click(function(){
-              var numDrinks = $("#" + ID).val();
+              var numDrinks = $("#" + ID+"_num").val();
               numDrinks--;
               numDrinks = Math.max(0, numDrinks);
-              $("#" + ID).val(numDrinks);
+              $("#" + ID+"_num").val(numDrinks);
             });
 
             var removeBtn = $("<button>Remove</button>");
