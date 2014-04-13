@@ -172,8 +172,12 @@
 
           var drink = $(this).html();
 
+          drink = drink.substring(0,drink.indexOf("<"));
+
           if( $("#orders:contains('" + drink + "')").length === 0){
             console.log(drink);
+            var lineDiv = $("<div></div>");
+            lineDiv.attr("id", ID);
             var lineItem = $("<div></div>");
 
             var drinkName = $("<label>" +$(this).html()+ "</label>");
@@ -196,11 +200,17 @@
               $("#" + ID).val(numDrinks);
             });
 
+            var removeBtn = $("<button>Remove</button>");
+            removeBtn.button().click(function(){
+              $("#"+ID).remove();
+            });
+
             lineItem.append(decBtn);
             lineItem.append(numField);
             lineItem.append(addBtn);
-            
-            $("#orders").append(lineItem);
+            lineItem.append(removeBtn);
+            lineDiv.append(lineItem)
+            $("#orders").append(lineDiv);
           }
         });
 
