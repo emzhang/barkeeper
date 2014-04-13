@@ -56,22 +56,6 @@
                 <li><a href="./id_check.html">Check Id</a></li>
                 <li><a href="./choose_mode.html">Switch Mode</a></li>
                 <li><a href="#">Logout</a></li>
-
-                <!-- for use if we want dropdown in menu-->
-
-                
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
               </ul>
             </div>
           </div>
@@ -83,61 +67,166 @@
 
 <!-- </header>  -->
 
-      <div class="jumbotron">
-        <h1>Pending Orders</h1>
-        <div class="text-left">
-        <div class="panel-group" id="accordion" >
-  <div class="panel panel-default" >
+  <div class="jumbotron">
+    <h1>All Orders</h1>
+    <div class="text-left">
+    <div class="panel-group" id="accordion" >
+
+   <div class="panel panel-success">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Zhang, Emily
+          Ready to Serve
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <ul>
-        <li>5 Whisky Sour</li>
-        <li>1 Blue Moon</li>
-        <li>3 Gin and Tonic</li>
-        <a class="btn btn-lg btn-round" href="./order_queue.html" role="button">+</a>
-        </ul>
-      </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Menendez, Walter</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1000</span>
+                  Water
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="panel panel-default">
+
+  <div class="panel panel-warning" >
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Paggi, Nick
+          Orders being made
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        <ul>
-        <li>2 Mojito</li>
-        <li>2 Appletini</li>
 
-        </ul>
-      </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Zhang, Emily</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item ">
+                  <span class="badge">1</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Shuman, Andrew</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">5</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+      <!-- <span class="list-group"> -->
+<!--         <div class="list-group">
+        <a href="#" class="list-group-item">
+      
+        <h4 class="list-group-item-heading">Zhang, Emily</h4>
+        <p class="list-group-item-text"> 2 Long Island, 4 Whiskey</p>
+          </a>
+        </div> -->
+    <!-- <div id="collapseTwo" class="panel-collapse collapse in"> -->
+      <!-- <span class="list-group"> -->
+<!--         <h4 class="list-group-item-heading">Shuman, Drew</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+           
+            <p class="list-group-item-text">Port <span class="badge pull-right">10</span></p>
+          </a>
+        </div> -->
+      <!-- </span> -->
     </div>
   </div>
-  <div class="panel panel-default">
+  <div class="panel panel-danger">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Bitdiddle, Ben
+          Orders not yet started
         </a>
       </h4>
     </div>
+
     <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-         <ul>
-        <li>5 Fireball</li>
-        </ul>
-      </div>
+          <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Paggi, Nick</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Fireball
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          Already Served
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+     <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Laverty, Katie</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Appletini
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
