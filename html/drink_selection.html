@@ -33,7 +33,7 @@
      <link href="../css/default.css" rel="stylesheet">
 
     <!-- Remember to change this! -->
-    <title>Barkeeper Template</title>
+    <title>Drink Selection</title>
 
     <style type="text/css">
       input[type="number"] {
@@ -49,7 +49,7 @@
     <div class="navbar-wrapper">
       <div class="container">
 
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="jumbotron">
       <div id="drinks">
         <div class="list-group">
         </div>
@@ -146,9 +146,9 @@
           $(".list-group").append(drinkRow);
         }
 
-        $("a").attr("data-toggle", "modal");
-        $("a").attr("data-target","#myModal");
-        $("a").on("click", function(){
+        $(".list-group-item").attr("data-toggle", "modal");
+        $(".list-group-item").attr("data-target","#myModal");
+        $(".list-group-item").on("click", function(){
           var ID = makeID();
 
           var drink = $(this).html();
