@@ -103,7 +103,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveDrinks">Save changes</button>
+            <button type="button" class="btn btn-primary" id="saveDrinks">Checkout</button>
           </div>
         </div>
       </div>
@@ -126,6 +126,25 @@
     <script type="text/javascript">
       $(function(){
 
+        $.extend({
+          getUrlVars : function() {
+              console.log(window.location.href);
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+        console.log($.getUrlVar('tab'));
 
         var makeID = function(){
           var text = "";
@@ -139,7 +158,6 @@
 
         for(var drink in drinks){
           var ingredients = drinks[drink];
-          console.log(ingredients);
 
           var drinkRow = $("<a class='list-group-item'></a>");
           $(drinkRow).html(drink);
@@ -150,50 +168,66 @@
         $(".list-group-item").attr("data-toggle", "modal");
         $(".list-group-item").attr("data-target","#myModal");
         $(".list-group-item").on("click", function(){
+          $("#saveDrinks").attr("disabled",false);
           var ID = makeID();
 
           var drink = $(this).html();
 
+          drink = drink.substring(0,drink.indexOf("<"));
+
           if( $("#orders:contains('" + drink + "')").length === 0){
             console.log(drink);
+            var lineDiv = $("<div></div>");
+            lineDiv.attr("id", ID);
             var lineItem = $("<div></div>");
 
             var drinkName = $("<label>" +$(this).html()+ "</label>");
             lineItem.append(drinkName);
             var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
-            numField.attr("id", ID);
+            numField.attr("id", ID+"_num");
             
             var addBtn = $("<button>+</button>");
             addBtn.button().click(function(){
-              var numDrinks = $("#" + ID).val();
+              var numDrinks = $("#" + ID+"_num").val();
               numDrinks++;
-              $("#" + ID).val(numDrinks);
+              $("#" + ID+"_num").val(numDrinks);
             });
               
             var decBtn = $("<button>-</button>");
             decBtn.button().click(function(){
-              var numDrinks = $("#" + ID).val();
+              var numDrinks = $("#" + ID+"_num").val();
               numDrinks--;
               numDrinks = Math.max(0, numDrinks);
-              $("#" + ID).val(numDrinks);
+              $("#" + ID+"_num").val(numDrinks);
+            });
+
+            var removeBtn = $("<button>Remove</button>");
+            removeBtn.button().click(function(){
+              $("#"+ID).remove();
+              console.log($("#orders > div"));
+              if($("#orders > div").length === 0){
+                $('#saveDrinks').attr("disabled", true);
+              }
             });
 
             lineItem.append(decBtn);
             lineItem.append(numField);
             lineItem.append(addBtn);
-            
-            $("#orders").append(lineItem);
+            lineItem.append(removeBtn);
+            lineDiv.append(lineItem)
+            $("#orders").append(lineDiv);
           }
         });
 
         $("#saveDrinks").on("click", function(){
+          var drinks = {};
           $.each($("#orders > div"), function(index, element){
             // TODO: clean up the string from .html();
-            drinks[$(element).find("label").html().trim()] = $(element).find("input").val();
+            drinks[$(element).find("label").html().substring(0,$(element).find("label").html().indexOf("<"))] = $(element).find("input").val();
           });
           console.log(drinks);
           console.log( JSON.stringify(drinks));
-
+          // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
         });
       });
