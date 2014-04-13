@@ -103,7 +103,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveDrinks">Save changes</button>
+            <button type="button" class="btn btn-primary" id="saveDrinks">Checkout</button>
           </div>
         </div>
       </div>
@@ -168,6 +168,7 @@
         $(".list-group-item").attr("data-toggle", "modal");
         $(".list-group-item").attr("data-target","#myModal");
         $(".list-group-item").on("click", function(){
+          $("#saveDrinks").attr("disabled",false);
           var ID = makeID();
 
           var drink = $(this).html();
@@ -203,6 +204,10 @@
             var removeBtn = $("<button>Remove</button>");
             removeBtn.button().click(function(){
               $("#"+ID).remove();
+              console.log($("#orders > div"));
+              if($("#orders > div").length === 0){
+                $('#saveDrinks').attr("disabled", true);
+              }
             });
 
             lineItem.append(decBtn);
@@ -215,13 +220,14 @@
         });
 
         $("#saveDrinks").on("click", function(){
+          var drinks = {};
           $.each($("#orders > div"), function(index, element){
             // TODO: clean up the string from .html();
-            drinks[$(element).find("label").html().trim()] = $(element).find("input").val();
+            drinks[$(element).find("label").html().substring(0,$(element).find("label").html().indexOf("<"))] = $(element).find("input").val();
           });
           console.log(drinks);
           console.log( JSON.stringify(drinks));
-
+          // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
         });
       });
