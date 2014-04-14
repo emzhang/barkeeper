@@ -187,15 +187,10 @@
           drink = drink.substring(0,drink.indexOf("<"));
 
           if( $("#orders:contains('" + drink + "')").length === 0){
-            // console.log(drink);
-            // var lineDiv = $("<div></div>");
-            // lineDiv.attr("id", ID);
-            // var lineItem = $("<div></div>");
             var drinkRow = $("<tr></tr>");
             drinkRow.attr("id", ID);
 
             var drinkName = $("<label>" +$(this).html()+ "</label>");
-            // lineItem.append(drinkName);
             var drinkNameCell = $("<td></td>");
             drinkNameCell.append(drinkName);
 
@@ -243,14 +238,6 @@
 
             var removeCell = $("<td></td>");
             removeCell.append(removeBtn);
-            // console.log(removeCell.html());
-
-
-            // lineItem.append(decBtn);
-            // lineItem.append(numField);
-            // lineItem.append(addBtn);
-            // lineItem.append(removeBtn);
-            // lineDiv.append(lineItem)
 
             var lineRow = $("<tr></tr>");
             lineRow.append(drinkNameCell);
