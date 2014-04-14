@@ -32,6 +32,22 @@
 
     <link href="../css/default.css" rel="stylesheet">
 
+    <style type="text/css">
+      th {
+        font-weight: bold;
+      }
+
+      tr, td {
+        padding-right: 30px;
+        padding-bottom: 20px;
+      }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+    </style>
+
     <!-- Remember to change this! -->
     <title>Barkeeper Template</title>
   </head>
@@ -66,8 +82,8 @@
     </div>
 
 
-    <div class="container text-center">
-      <div class="row">
+    <div class="container">
+      <!-- <div class="row">
         <div class="col-md-8"><h2>Tab for Ben Bitdiddle</h2></div>
         <div class="col-md-4"><a id="add-drink" class="btn btn-default" href="./drink_selection.html">add drink</a></div>
       </div>
@@ -89,7 +105,39 @@
           <div class="col-md-4"><strong>Total</strong></div>
           <div class="col-md-4">$25.94</div>
         </div>
-      </div>
+      </div> -->
+
+      <table>
+        <tr>
+          <td><h2>Tab for Ben Bitdiddle</h2></td>
+          <td></td>
+          <td><a id="add-drink" class="btn btn-default">add drink</a></td>
+        </tr>
+<!--       </table>
+      <table id="drinks"> -->
+        <th>
+          <tr>
+          <td><strong>Drink</strong></td>
+          <td><strong>Quantity</strong></td>
+          <td><strong>Price</strong></td>
+        </tr>
+        </th>
+        <tr>
+          <td>Drink 1</td>
+          <td>4</td>
+          <td>$5.99</td>
+        </tr>
+        <tr>
+          <td>Drink 2</td>
+          <td>4</td>
+          <td>$5.99</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><strong>Total</strong></td>
+          <td><strong>$11.98</strong></td>
+        </tr>
+      </table>
     </div>
 
 
