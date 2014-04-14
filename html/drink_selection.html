@@ -189,9 +189,11 @@
           if( $("#orders:contains('" + drink + "')").length === 0){
             var drinkRow = $("<tr></tr>");
             drinkRow.attr("id", ID);
-
-            var drinkName = $("<label>" +$(this).html()+ "</label>");
+            var name = $(this).html();
+            name = name.substring(0,name.indexOf("<"));
+            var drinkName = $("<label>" +name+ "</label>");
             var drinkNameCell = $("<td></td>");
+            drinkNameCell.css("width", "150px");
             drinkNameCell.append(drinkName);
 
             var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
