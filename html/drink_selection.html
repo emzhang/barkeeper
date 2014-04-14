@@ -111,7 +111,8 @@
           </div>
           <div class="modal-body">
             
-            <span id="orders"></span>
+            <!-- <span id="orders"></span> -->
+            <table id="orders"></table>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -156,8 +157,6 @@
           }
         });
 
-        console.log($.getUrlVar('tab'));
-
         var makeID = function(){
           var text = "";
           var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -188,13 +187,18 @@
           drink = drink.substring(0,drink.indexOf("<"));
 
           if( $("#orders:contains('" + drink + "')").length === 0){
-            console.log(drink);
-            var lineDiv = $("<div></div>");
-            lineDiv.attr("id", ID);
-            var lineItem = $("<div></div>");
+            // console.log(drink);
+            // var lineDiv = $("<div></div>");
+            // lineDiv.attr("id", ID);
+            // var lineItem = $("<div></div>");
+            var drinkRow = $("<tr></tr>");
+            drinkRow.attr("id", ID);
 
             var drinkName = $("<label>" +$(this).html()+ "</label>");
-            lineItem.append(drinkName);
+            // lineItem.append(drinkName);
+            var drinkNameCell = $("<td></td>");
+            drinkNameCell.append(drinkName);
+
             var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
             numField.attr("id", ID+"_num");
             
@@ -218,6 +222,12 @@
             decBtn.attr("class", "drinkBtn");
             decBtn.addClass("btn");
 
+            var addDecBtnCell = $("<td></td>");
+            addDecBtnCell.append(decBtn);
+            addDecBtnCell.append(numField);
+            addDecBtnCell.append(addBtn);
+            
+
             var removeBtn = $("<button>Remove</button>");
             removeBtn.button().click(function(){
               $("#"+ID).remove();
@@ -231,13 +241,23 @@
             removeBtn.addClass("btn-danger");
             removeBtn.addClass("btn");
 
+            var removeCell = $("<td></td>");
+            removeCell.append(removeBtn);
+            // console.log(removeCell.html());
 
-            lineItem.append(decBtn);
-            lineItem.append(numField);
-            lineItem.append(addBtn);
-            lineItem.append(removeBtn);
-            lineDiv.append(lineItem)
-            $("#orders").append(lineDiv);
+
+            // lineItem.append(decBtn);
+            // lineItem.append(numField);
+            // lineItem.append(addBtn);
+            // lineItem.append(removeBtn);
+            // lineDiv.append(lineItem)
+
+            var lineRow = $("<tr></tr>");
+            lineRow.append(drinkNameCell);
+            console.log(addDecBtnCell);
+            lineRow.append(addDecBtnCell);
+            lineRow.append(removeCell);
+            $("#orders").append(lineRow);
           }
         });
 
