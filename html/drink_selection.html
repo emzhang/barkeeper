@@ -46,6 +46,7 @@
 
       .ingredients {
         color: gray;
+        font-size: 15px;
       }
 
       .drinkBtn {
@@ -64,6 +65,10 @@
         list-style-type: none;
         text-align: left;
       }
+
+      .list-group-item {
+        font-size: 20px;
+      }
       
       li[role="heading"]{
         background-color: #54B2CC;
@@ -72,7 +77,7 @@
         padding-left: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
-        font-size: 20px;
+        font-size: 25px;
       }
     </style>
   </head>
@@ -143,12 +148,7 @@
       <div id="dead" class="col-md-12"></div>
       <div id="drinks">
 
-        <ul id="mylistview" data-role="listview" data-autodividers="true">
-<!--                 <li class="list-group-item">Appletini</li>
-                <li class="list-group-item">Gin and tonic</li>
-                <li class="list-group-item">Leap frog</li>
-                <li class="list-group-item">Rum and coke</li> -->
-              
+        <ul id="mylistview" data-role="listview" data-autodividers="true">              
         </ul>
     </li>
         <div class="list-group">
@@ -167,7 +167,7 @@
     
     <script type="text/javascript">
       $(function(){
-        // $( '#mylistview' ).alphascroll();
+
         $.extend({
           getUrlVars : function() {
               console.log(window.location.href);
