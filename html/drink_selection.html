@@ -89,6 +89,15 @@
         padding-bottom: 10px;
         font-size: 25px;
       }
+
+      #checkout {
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:60px;
+        width:100%;
+        background:#78EB7A; 
+      }
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
@@ -134,25 +143,7 @@
 
       </div>
     </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Current order</h4>
-          </div>
-          <div class="modal-body">
-            
-            <!-- <span id="orders"></span> -->
-            <table id="orders"></table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveDrinks">Checkout</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <div class="jumbotron">
       <div id="dead" class="col-md-12"></div>
@@ -160,9 +151,10 @@
 
         <ul id="mylistview" data-role="listview" data-autodividers="true">              
         </ul>
-    </li>
       </div>
     </div>
+
+    <button id="checkout" class="btn">Checkout</button>
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
 
@@ -206,7 +198,6 @@
 
         var drinkKeys = Object.keys(drinks);
         drinkKeys.sort();
-        console.log(drinkKeys);
 
         for(var i = 0; i < drinkKeys.length; i++){
           var ingredients = drinks[drinkKeys[i]];
@@ -224,6 +215,7 @@
           var ID = makeID();
           var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
           numField.attr("id", ID);
+          numField.attr("drink", drinkKeys[i]);
           
           var addBtn = $("<button>+</button>");
           addBtn.on("click", function(){
@@ -271,19 +263,24 @@
 
           drinkRow.append(addDecBtnCell);
           $("#mylistview").append(drinkRow);
-
-
         }
+
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
-        $("#saveDrinks").on("click", function(){
+        $("#checkout").on("click", function(){
           var drinks = {};
-          $.each($("#orders > div"), function(index, element){
-            // TODO: clean up the string from .html();
-            drinks[$(element).find("label").html().substring(0,$(element).find("label").html().indexOf("<"))] = $(element).find("input").val();
+          // $.each($("input"), function(index, element){
+          //   // TODO: clean up the string from .html();
+          //   console.log($(element).attr("drink"));
+          //   drinks[$(element).attr("drink")] = $(element).val();
+          // });
+
+          $.each($("input"), function(i, element){
+            if($(element).val() !== "0")
+              drinks[$(element).attr("drink")] = $(element).val();
           });
           console.log(drinks);
-          console.log( JSON.stringify(drinks));
+
           // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
         });
