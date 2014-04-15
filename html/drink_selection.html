@@ -215,6 +215,7 @@
           var ID = makeID();
           var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
           numField.attr("id", ID);
+          numField.attr("drink", drinkKeys[i]);
           
           var addBtn = $("<button>+</button>");
           addBtn.on("click", function(){
@@ -266,12 +267,19 @@
 
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
-        $("#saveDrinks").on("click", function(){
+        $("#checkout").on("click", function(){
           var drinks = {};
-          $.each($("#orders > div"), function(index, element){
-            // TODO: clean up the string from .html();
-            drinks[$(element).find("label").html().substring(0,$(element).find("label").html().indexOf("<"))] = $(element).find("input").val();
+          // $.each($("input"), function(index, element){
+          //   // TODO: clean up the string from .html();
+          //   console.log($(element).attr("drink"));
+          //   drinks[$(element).attr("drink")] = $(element).val();
+          // });
+
+          $.each($("input"), function(i, element){
+            if($(element).val() !== "0")
+              drinks[$(element).attr("drink")] = $(element).val();
           });
+          console.log(drinks);
 
           // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
