@@ -19,7 +19,7 @@
     		//});
     		
     		$("#queue").append("<div class='panel-heading span12' id='spacer"+numdrinks+"'></div>");
-        $(drinkname).mousedown(function(event){
+        /*$(drinkname).mousedown(function(event){
           downX=event.clientX;
           downY=event.clientY;
           startswipe=this;
@@ -34,7 +34,7 @@
              $(spacername).remove();
            }
          }
-       });
+       });*/
 
 
 
