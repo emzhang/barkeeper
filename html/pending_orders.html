@@ -4,12 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <meta name="viewport" content="user-scalable=no, width=device-width" />
-
+   <!--  <meta name="viewport" content="user-scalable=no, width=device-width" />
+ -->
     <!-- Eliminate url and button bars if added to home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
@@ -18,26 +17,220 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+
+    <meta name="viewport"
+    content="user-scalable=no, width=device-width" />
+    <link rel="shortcut icon" href="../assets/favicon.ico">
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+
+     <link href="../css/default.css" rel="stylesheet">
 
     <!-- Remember to change this! -->
     <title>Barkeeper Template</title>
   </head>
+
   <body ontouchmove="BlockMove(event);">
-  <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner"></header>
-    <div class="container">
-      <div class="header">
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Barkeeper</a>
+            </div>
+            <div class="navbar-collapse collapse in" style="height: auto;">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="./id_check.html">Check Id</a></li>
+                <li><a href="./choose_mode.html">Switch Mode</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
       </div>
+    </div>
+    <div class="container">
 
-      <div class="jumbotron">
-        <h1>Pending Orders</h1>
-        <p class="lead">Are you bartending or serving drinks today?</p>
+<!-- </header>  -->
+
+  <div class="jumbotron">
+    <h1>All Orders</h1>
+    <div class="text-left">
+    <div class="panel-group" id="accordion" >
+
+   <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Ready to Serve
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Menendez, Walter</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1000</span>
+                  Water
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel panel-warning" >
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Orders being made
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Zhang, Emily</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item ">
+                  <span class="badge">1</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Shuman, Andrew</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">5</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+      <!-- <span class="list-group"> -->
+<!--         <div class="list-group">
+        <a href="#" class="list-group-item">
+      
+        <h4 class="list-group-item-heading">Zhang, Emily</h4>
+        <p class="list-group-item-text"> 2 Long Island, 4 Whiskey</p>
+          </a>
+        </div> -->
+    <!-- <div id="collapseTwo" class="panel-collapse collapse in"> -->
+      <!-- <span class="list-group"> -->
+<!--         <h4 class="list-group-item-heading">Shuman, Drew</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+           
+            <p class="list-group-item-text">Port <span class="badge pull-right">10</span></p>
+          </a>
+        </div> -->
+      <!-- </span> -->
+    </div>
+  </div>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Orders not yet started
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseThree" class="panel-collapse collapse">
+          <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Paggi, Nick</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Fireball
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          Already Served
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+     <ul class="list-group">
+       
+        <li class="list-group-item">
+          <div class="panel panel-default">
+            <div class="panel-heading">Laverty, Katie</div>
+            <!-- <div class="panel-body"> -->
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Appletini
+                </a>
+              </ul>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
     
       </div>
 
@@ -45,15 +238,10 @@
 
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   </body>
-</html> 
+</html>
