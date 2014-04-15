@@ -36,24 +36,48 @@
 
 
   <body ontouchmove="BlockMove(event);">
-    
+    <div class="navbar-wrapper">
+      <!-- <div class="container"> -->
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Barkeeper</a>
+            </div>
+            <div class="navbar-collapse collapse in" style="height: auto;">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="./index">Home</a></li>
+                <li><a href="./choose_mode.html">Switch Mode</a></li>
+                <li><a href="./login.html">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
     <!-- </div> -->
     <div class="container">
 
 <!-- </header>  -->
 
       <div class="jumbotron">
-        <h1>Welcome to Barkeeper</h1>
+        <h1>Welcome Jason</h1>
+        <h3>Are you bartending or serving drinks today?</h3>
+        <a class="btn btn-lg btn-success" href="./order_queue.html" role="button">I'm bartending</a>
+       <a class="btn btn-lg btn-success" href="./pending_orders.html" role="button">I'm serving</a>
+       <br>
+       <div>
+       <h3>Checking Stock or IDs?</h3></div>
+       <a class="btn btn-primary" href="./stock.html" role="button">Check Stock</a>
+       <a class="btn btn-primary" href="./id_check.html" role="button">Check ID</a>
 
-        <form class="form-signin" role="form">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Name"  autofocus="">
-        <input type="password" class="form-control" placeholder="Password">
-      	<a class="btn btn-lg btn-primary btn-block" href="./choose_mode.html" role="button">Sign in</a>
-      </form>
-        
-          
-       
+
       </div>
 
 
