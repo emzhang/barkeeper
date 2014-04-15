@@ -31,7 +31,10 @@
 
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-     <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/default.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../js/alphascroll-master/jquery.mobile.alphascroll.css" />
+    
 
     <!-- Remember to change this! -->
     <title>Drink Selection</title>
@@ -56,6 +59,24 @@
         height: 40px;
         margin-left: 10px;
       }
+
+
+      #iphone-search { 
+        list-style: none; 
+        padding:0 5px; 
+        margin:0; 
+        font-family:Georgia, Times, serif; 
+        font-size:12px; 
+        line-height:17px; 
+        left:95%; 
+        margin-top: 20px;
+        position:fixed; 
+        text-align:center; 
+        font-weight:bold;
+        z-index: 1; 
+      }
+    #iphone-search li a { text-decoration:none; color:#666666; }
+    #iphone-search li a:hover { color:#000000; }
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
@@ -124,6 +145,11 @@
 
     <div class="jumbotron">
       <div id="drinks">
+
+        <ul id="mylistview" data-role="listview" data-autodividers="true">
+          <li>Gin and tonic</li>
+        </ul>
+    </li>
         <div class="list-group">
         </div>
       </div>
@@ -133,12 +159,13 @@
 
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/alphascroll-master/jquery.mobile.alphascroll.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/drinks.js"></script>
     
     <script type="text/javascript">
       $(function(){
-
+        $( '#mylistview' ).alphascroll();
         $.extend({
           getUrlVars : function() {
               console.log(window.location.href);
