@@ -60,23 +60,15 @@
         margin-left: 10px;
       }
 
-
-      #iphone-search { 
-        list-style: none; 
-        padding:0 5px; 
-        margin:0; 
-        font-family:Georgia, Times, serif; 
-        font-size:12px; 
-        line-height:17px; 
-        left:95%; 
-        margin-top: 20px;
-        position:fixed; 
-        text-align:center; 
-        font-weight:bold;
-        z-index: 1; 
+      li {
+        list-style-type: none;
+        text-align: left;
       }
-    #iphone-search li a { text-decoration:none; color:#666666; }
-    #iphone-search li a:hover { color:#000000; }
+      li[role="heading"]{
+        background-color: #00ffff;
+        
+        font-weight: bold;
+      }
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
@@ -144,12 +136,13 @@
     </div>
 
     <div class="jumbotron">
+      <div id="dead" class="col-md-12"></div>
       <div id="drinks">
 
         <ul id="mylistview" data-role="listview" data-autodividers="true">
-                <li>Appletini</li>
-                <li>Gin and tonic</li>
-                <li>Leap frog</li>
+                <li class="list-group-item">Appletini</li>
+                <li class="list-group-item">Gin and tonic</li>
+                <li class="list-group-item">Leap frog</li>
               
         </ul>
     </li>
@@ -198,14 +191,14 @@
           return text;
         };
 
-        for(var drink in drinks){
-          var ingredients = drinks[drink];
+        // for(var drink in drinks){
+        //   var ingredients = drinks[drink];
 
-          var drinkRow = $("<a class='list-group-item'></a>");
-          $(drinkRow).html(drink);
-          $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
-          $(".list-group").append(drinkRow);
-        }
+        //   var drinkRow = $("<a class='list-group-item'></a>");
+        //   $(drinkRow).html(drink);
+        //   $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
+        //   $(".list-group").append(drinkRow);
+        // }
 
         $(".list-group-item").attr("data-toggle", "modal");
         $(".list-group-item").attr("data-target","#myModal");
