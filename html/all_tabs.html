@@ -147,7 +147,7 @@
         for(var i = 0; i < tabKeys.length; i++){
           var nameNoSpaces=tabKeys[i].split(' ').join('');
           $("#mylistview").append("<li class='list-group-item' id='"+nameNoSpaces+"'>"+tabKeys[i]+"</li>");
-          console.log(tabKeys[i].split(' ').join(''));
+
           $("#"+nameNoSpaces).on("click",function(event){
               location.href = "./view_tab.html";
               console.log("clicked");
