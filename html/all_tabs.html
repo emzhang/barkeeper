@@ -37,38 +37,18 @@
     
 
     <!-- Remember to change this! -->
-    <title>Drink Selection</title>
+    <title>List of State IDs</title>
 
     <style type="text/css">
       input[type="number"] {
         width: 40px;
       }
 
-      .ingredients {
-        color: gray;
-        font-size: 15px;
-      }
-
-      .drinkBtn {
-        width: 40px;
-        height: 40px;
-        margin-left: 10px;
-      }
 
       input {
         width: 40px;
         height: 40px;
         margin-left: 10px;
-        vertical-align: middle;
-      }
-
-      .jumbotron .btn {
-        padding: inherit !important;
-      }
-
-      button {
-        vertical-align: middle;
-        padding-left: 3px;
       }
 
       li {
@@ -88,15 +68,6 @@
         padding-top: 10px;
         padding-bottom: 10px;
         font-size: 25px;
-      }
-
-      #checkout {
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:60px;
-        width:100%;
-        background:#78EB7A; 
       }
     </style>
   </head>
@@ -143,18 +114,19 @@
 
       </div>
     </div>
-
-
+    
     <div class="jumbotron">
       <div id="dead" class="col-md-12"></div>
       <div id="drinks">
 
-        <ul id="mylistview" data-role="listview" data-autodividers="true">              
+        <ul id="mylistview" data-role="listview" data-autodividers="true">     
+
         </ul>
+    </li>
+        <div class="list-group">
+        </div>
       </div>
     </div>
-
-    <button id="checkout" class="btn">Checkout</button>
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
 
@@ -164,126 +136,25 @@
     <script type="text/javascript" src="../js/alphascroll-master/jquery.mobile.alphascroll.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/drinks.js"></script>
+    <script type="text/javascript" src="../js/tabs.js"></script>
     
     <script type="text/javascript">
       $(function(){
 
-        $.extend({
-          getUrlVars : function() {
-              console.log(window.location.href);
-              var vars = [], hash;
-              var hashes = window.location.href.slice(
-                      window.location.href.indexOf('?') + 1).split('&');
-              for ( var i = 0; i < hashes.length; i++) {
-                  hash = hashes[i].split('=');
-                  vars.push(hash[0]);
-                  vars[hash[0]] = hash[1];
-              }
-              return vars;
-          },
-          getUrlVar : function(name) {
-              return $.getUrlVars()[name];
-          }
-        });
 
-        var makeID = function(){
-          var text = "";
-          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var tabKeys = Object.keys(tabs); 
+        tabKeys.sort();
+        for(var i = 0; i < tabKeys.length; i++){
+          var nameNoSpaces=tabKeys[i].split(' ').join('');
+          $("#mylistview").append("<li class='list-group-item' id='"+nameNoSpaces+"'>"+tabKeys[i]+"</li>");
 
-          for( var i=0; i < 5; i++ )
-              text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-          return text;
-        };
-
-        var drinkKeys = Object.keys(drinks);
-        drinkKeys.sort();
-
-        for(var i = 0; i < drinkKeys.length; i++){
-          var ingredients = drinks[drinkKeys[i]];
-
-          var drinkRow = $("<li class='list-group-item'></li>");
-          var drinkLabel = $("<label>" + drinkKeys[i] + "</drink>");
-          drinkLabel.css("width", "200px");
-          $(drinkRow).html(drinkLabel);
-          var ingredientSpan = $('<span class="ingredients">' + ingredients + '</span>');
-          ingredientSpan.css("width", "200px");
-          drinkRow.append("</br>");
-          drinkRow.append(ingredientSpan);
-          
-
-          var ID = makeID();
-          var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
-          numField.attr("id", ID);
-          numField.attr("drink", drinkKeys[i]);
-          
-          var addBtn = $("<button>+</button>");
-          addBtn.on("click", function(){
-            
-            var numDrinks = $("#" + $(this).attr("field")).val();
-            numDrinks++;
-            $("#" + $(this).attr("field")).val(numDrinks);
+          $("#"+nameNoSpaces).on("click",function(event){
+              location.href = "./view_tab.html";
+              console.log("clicked");
           });
-          addBtn.attr("class", "drinkBtn");
-          addBtn.addClass("btn");
-          addBtn.attr("field", ID);
-            
-          var decBtn = $("<button>-</button>");
-          decBtn.on("click", function(){
-            var numDrinks = $("#" + $(this).attr("field")).val();
-            numDrinks--;
-            numDrinks = Math.max(0, numDrinks);
-            $("#" + $(this).attr("field")).val(numDrinks);
-          });
-          decBtn.attr("class", "drinkBtn");
-          decBtn.addClass("btn");
-          decBtn.attr("field", ID);
-
-          var removeBtn = $("<button>Clear</button>");
-          removeBtn.button().click(function(){
-            $("#" + $(this).attr("field")).val(0);
-          });
-          removeBtn.attr("field", ID);
-
-          removeBtn.css("margin-left", "10px");
-          removeBtn.addClass("btn-danger");
-          removeBtn.addClass("btn");
-          removeBtn.css("width", "100px");
-          removeBtn.css("height", "40px");
-
-          var addDecBtnCell = $("<div></div>");
-          addDecBtnCell.append(decBtn);
-          addDecBtnCell.append(numField);
-          addDecBtnCell.append(addBtn);
-          addDecBtnCell.append(removeBtn);
-
-          addDecBtnCell.css("position", "absolute");
-          addDecBtnCell.css("left", "25%");
-          addDecBtnCell.css("top", "20%");
-
-          drinkRow.append(addDecBtnCell);
-          $("#mylistview").append(drinkRow);
+        
         }
-
-        $( '#mylistview' ).listview( 'refresh' ).alphascroll();
-
-        $("#checkout").on("click", function(){
-          var drinks = {};
-          // $.each($("input"), function(index, element){
-          //   // TODO: clean up the string from .html();
-          //   console.log($(element).attr("drink"));
-          //   drinks[$(element).attr("drink")] = $(element).val();
-          // });
-
-          $.each($("input"), function(i, element){
-            if($(element).val() !== "0")
-              drinks[$(element).attr("drink")] = $(element).val();
-          });
-          console.log(drinks);
-
-          // TODO: this...doesn't work
-          window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
-        });
+      $( '#mylistview' ).listview( 'refresh' ).alphascroll();
       });
     </script>
   </body>
