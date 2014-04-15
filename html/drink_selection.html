@@ -59,6 +59,16 @@
         width: 40px;
         height: 40px;
         margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .jumbotron .btn {
+        padding: inherit !important;
+      }
+
+      button {
+        vertical-align: middle;
+        padding-left: 3px;
       }
 
       li {
@@ -151,8 +161,6 @@
         <ul id="mylistview" data-role="listview" data-autodividers="true">              
         </ul>
     </li>
-        <div class="list-group">
-        </div>
       </div>
     </div>
     <!-- Loaded at the bottom of the page for faster page loads -->
@@ -196,90 +204,77 @@
           return text;
         };
 
-        for(var drink in drinks){
-          var ingredients = drinks[drink];
+        var drinkKeys = Object.keys(drinks);
+        drinkKeys.sort();
+        console.log(drinkKeys);
+
+        for(var i = 0; i < drinkKeys.length; i++){
+          var ingredients = drinks[drinkKeys[i]];
 
           var drinkRow = $("<li class='list-group-item'></li>");
-          $(drinkRow).html(drink);
-          $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
+          var drinkLabel = $("<label>" + drinkKeys[i] + "</drink>");
+          drinkLabel.css("width", "200px");
+          $(drinkRow).html(drinkLabel);
+          var ingredientSpan = $('<span class="ingredients">' + ingredients + '</span>');
+          ingredientSpan.css("width", "200px");
+          drinkRow.append("</br>");
+          drinkRow.append(ingredientSpan);
+          
+
+          var ID = makeID();
+          var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
+          numField.attr("id", ID);
+          
+          var addBtn = $("<button>+</button>");
+          addBtn.on("click", function(){
+            
+            var numDrinks = $("#" + $(this).attr("field")).val();
+            numDrinks++;
+            $("#" + $(this).attr("field")).val(numDrinks);
+          });
+          addBtn.attr("class", "drinkBtn");
+          addBtn.addClass("btn");
+          addBtn.attr("field", ID);
+            
+          var decBtn = $("<button>-</button>");
+          decBtn.on("click", function(){
+            var numDrinks = $("#" + $(this).attr("field")).val();
+            numDrinks--;
+            numDrinks = Math.max(0, numDrinks);
+            $("#" + $(this).attr("field")).val(numDrinks);
+          });
+          decBtn.attr("class", "drinkBtn");
+          decBtn.addClass("btn");
+          decBtn.attr("field", ID);
+
+          var removeBtn = $("<button>Clear</button>");
+          removeBtn.button().click(function(){
+            $("#" + $(this).attr("field")).val(0);
+          });
+          removeBtn.attr("field", ID);
+
+          removeBtn.css("margin-left", "10px");
+          removeBtn.addClass("btn-danger");
+          removeBtn.addClass("btn");
+          removeBtn.css("width", "100px");
+          removeBtn.css("height", "40px");
+
+          var addDecBtnCell = $("<div></div>");
+          addDecBtnCell.append(decBtn);
+          addDecBtnCell.append(numField);
+          addDecBtnCell.append(addBtn);
+          addDecBtnCell.append(removeBtn);
+
+          addDecBtnCell.css("position", "absolute");
+          addDecBtnCell.css("left", "25%");
+          addDecBtnCell.css("top", "20%");
+
+          drinkRow.append(addDecBtnCell);
           $("#mylistview").append(drinkRow);
+
 
         }
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
-
-        $(".list-group-item").attr("data-toggle", "modal");
-        $(".list-group-item").attr("data-target","#myModal");
-        $(".list-group-item").on("click", function(){
-          $("#saveDrinks").attr("disabled",false);
-          var ID = makeID();
-
-          var drink = $(this).html();
-
-          drink = drink.substring(0,drink.indexOf("<"));
-
-          if( $("#orders:contains('" + drink + "')").length === 0){
-            var drinkRow = $("<tr></tr>");
-            drinkRow.attr("id", ID);
-            var name = $(this).html();
-            name = name.substring(0,name.indexOf("<"));
-            var drinkName = $("<label>" +name+ "</label>");
-            var drinkNameCell = $("<td></td>");
-            drinkNameCell.css("width", "150px");
-            drinkNameCell.append(drinkName);
-
-            var numField = $('<input type="number" name="numDrinks" min="0" value="1">');
-            numField.attr("id", ID+"_num");
-            
-            var addBtn = $("<button>+</button>");
-            addBtn.button().click(function(){
-              var numDrinks = $("#" + ID+"_num").val();
-              numDrinks++;
-              $("#" + ID+"_num").val(numDrinks);
-            });
-            addBtn.attr("class", "drinkBtn");
-            addBtn.addClass("btn");
-              
-            var decBtn = $("<button>-</button>");
-            decBtn.button().click(function(){
-              var numDrinks = $("#" + ID+"_num").val();
-              numDrinks--;
-              numDrinks = Math.max(0, numDrinks);
-              $("#" + ID+"_num").val(numDrinks);
-            });
-
-            decBtn.attr("class", "drinkBtn");
-            decBtn.addClass("btn");
-
-            var addDecBtnCell = $("<td></td>");
-            addDecBtnCell.append(decBtn);
-            addDecBtnCell.append(numField);
-            addDecBtnCell.append(addBtn);
-            
-
-            var removeBtn = $("<button>Remove</button>");
-            removeBtn.button().click(function(){
-              $("#"+ID).remove();
-              console.log($("#orders > div"));
-              if($("#orders > div").length === 0){
-                $('#saveDrinks').attr("disabled", true);
-              }
-            });
-
-            removeBtn.css("margin-left", "10px");
-            removeBtn.addClass("btn-danger");
-            removeBtn.addClass("btn");
-
-            var removeCell = $("<td></td>");
-            removeCell.append(removeBtn);
-
-            var lineRow = $("<tr></tr>");
-            lineRow.append(drinkNameCell);
-            console.log(addDecBtnCell);
-            lineRow.append(addDecBtnCell);
-            lineRow.append(removeCell);
-            $("#orders").append(lineRow);
-          }
-        });
 
         $("#saveDrinks").on("click", function(){
           var drinks = {};
