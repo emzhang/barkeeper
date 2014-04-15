@@ -1,23 +1,281 @@
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+
+    <!-- Eliminate url and button bars if added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+   <!-- Choose how to handle the phone status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Jumbotron template CSS  -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <!-- specific CSS -->
+    <link rel="stylesheet" href="../css/stock.css">
+
+
+
+    <title>Stock</title>
+  </head>
+  <body ontouchmove="BlockMove(event);">
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Barkeeper</a>
+            </div>
+            <div class="navbar-collapse collapse in" style="height: auto;">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="./id_check.html">Check Id</a></li>
+                <li><a href="./choose_mode.html">Switch Mode</a></li>
+                <li><a href="#">Logout</a></li>
+
+                <!-- for use if we want dropdown in menu-->
+
+                
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
+    <div class="container">
+      <div class="header">
+
+      </div>
+
+      <div class="jumbotron">
+        <h1>Stock</h1>
+
+        <!--<div class="progress progress-striped active">
+            <div class="progress-bar"  role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">10% Complete</span>
+            </div>
+        </div> -->
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#beer" data-toggle="tab">Beer</a></li>
+            <li><a href="#gin" data-toggle="tab">Gin</a></li>
+            <li><a href="#rum" data-toggle="tab">Rum</a></li>
+            <li><a href="#tequila" data-toggle="tab">Tequila</a></li>
+            <li><a href="#vodka" data-toggle="tab">Vodka</a></li>
+            <li><a href="#whiskey" data-toggle="tab">Whiskey</a></li>
+            <li><a href="#wine" data-toggle="tab">Wine</a></li>
+            <li><a href="#mixers" data-toggle="tab">Mixers</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="beer">
+                <ul class="list-group">
+                    <li class="list-group-item">Bud Light <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="10" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="30" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Budweiser <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="50" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="54" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Busch     <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="20" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="65" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Coors Light <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="102" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="69" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Corona    <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="86" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Heineken <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="36" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="74" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Miller Lite <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="85" min="0"> cans</li>
+                                                                <li class="list-group-item"><input type="number" value="75" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="gin">
+                <ul class="list-group">
+                    <li class="list-group-item">Gordon's <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="7" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">McCormick Dry <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="11" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Tanqueray <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="6" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="rum">
+                <ul class="list-group">
+                    <li class="list-group-item">Bacardi <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="8" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Captain Morgan <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="13" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">El Dorado <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="9" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="tequila">
+                <ul class="list-group">
+                    <li class="list-group-item">4 Copas <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="6" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Jose Cuervo <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="20" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Patrón <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="24" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="vodka">
+                <ul class="list-group">
+                    <li class="list-group-item">Absolut <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="14" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Grey Goose <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="17" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Three Olives <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="42" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="whiskey">
+                <ul class="list-group">
+                    <li class="list-group-item">Bushmills <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="31" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Jameson <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="5" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Jim Beam <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="14" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="wine">
+                <ul class="list-group">
+                    <li class="list-group-item">Gallo <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="32" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Yellow Tail <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="17" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Lindemans <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="22" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="mixers">
+                <ul class="list-group">
+                    <li class="list-group-item">Coke <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="23" min="0"> liters</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Sprite <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="17" min="0"> liters</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Orange Juice <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="43" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                    <li class="list-group-item">Cranberry Juice <ul class="list-group" style="float: right">
+                                                                <li class="list-group-item"><input type="number" value="42" min="0"> bottles</li>
+                                                          </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+
+
+    </div> <!-- /container -->
+    <!-- Loaded at the bottom of the page for faster page loads -->
+    <!-- Any new JS files should also be loaded here! -->
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        // This allows the Javascript code inside this block to only run when the page
+        // has finished loading in the browser.
+        $(document).ready(function() {
+
+        });
+
+    </script>
+  </body>
+</html>
