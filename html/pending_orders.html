@@ -70,7 +70,10 @@
 <!-- </header>  -->
 
   <div class="jumbotron">
-    <h1>All Orders</h1>
+    <h1>All Orders </h1>
+    <h6><button type="button" class="btn btn-default btn-sm">
+        <span class='glyphicon glyphicon-plus'></span> <a href="drink_selection.html">Quick Add Drink</a>
+    </button></h6>
     <div class="text-left">
     <div class="panel-group" id="accordion" >
 
@@ -122,7 +125,7 @@
           <div class="panel panel-default">
             <div class="panel-heading"><b>Zhang, Emily</b><span class="addButtonName" id="Zhang">
               <button type="button" class="btn btn-default btn-xs">
-        <span class='glyphicon glyphicon-plus'></span><a href="drink_selection.html">Add Drink</a>
+        <span class='glyphicon glyphicon-plus'></span>Add Drink
     </button>
 
             </span></div>
@@ -248,27 +251,30 @@
 
      <script>
       $(function(){
-        $(".addButtonName#Bitdiddle").on("click", function(){
+        $("#Bitdiddle").on("click", function(){
           window.location.href = "./drink_selection.html?tab=Bitdiddle";
         });
+      });
 
       $(function(){
-        $(".addButtonName#Zhang").on("click", function(){
+        $("#Zhang").on("click", function(){
           window.location.href = "./drink_selection.html?tab=Zhang";
         });
-
+      });
       $(function(){
-        $(".addButtonName#Shuman").on("click", function(){
+        $("#Shuman").on("click", function(){
           window.location.href = "./drink_selection.html?tab=Shuman";
         });
+      });
 
       $(function(){
-        $(".addButtonName#Paggi").on("click", function(){
+        $("#Paggi").on("click", function(){
           window.location.href = "./drink_selection.html?tab=Paggi";
         });
+      });
 
       $(function(){
-        $(".addButtonName#Laverty").on("click", function(){
+        $("#Laverty").on("click", function(){
           window.location.href = "./drink_selection.html?tab=Laverty";
         });
 
