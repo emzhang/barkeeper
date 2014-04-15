@@ -204,11 +204,15 @@
           return text;
         };
 
-        for(var drink in drinks){
-          var ingredients = drinks[drink];
+        var drinkKeys = Object.keys(drinks);
+        drinkKeys.sort();
+        console.log(drinkKeys);
+
+        for(var i = 0; i < drinkKeys.length; i++){
+          var ingredients = drinks[drinkKeys[i]];
 
           var drinkRow = $("<li class='list-group-item'></li>");
-          var drinkLabel = $("<label>" + drink + "</drink>");
+          var drinkLabel = $("<label>" + drinkKeys[i] + "</drink>");
           drinkLabel.css("width", "200px");
           $(drinkRow).html(drinkLabel);
           var ingredientSpan = $('<span class="ingredients">' + ingredients + '</span>');
