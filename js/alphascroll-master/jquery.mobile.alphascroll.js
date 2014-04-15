@@ -110,14 +110,15 @@
 
 							// offset scroll-top if header is displayed
 							if ( $( '.ui-page-active [data-role="header"]' ).hasClass( 'ui-fixed-hidden' ) ) {
-								header_height = 0;
+
+								header_height = 50;
 							}
 							else {
-								header_height = $( '.ui-page-active [data-role="header"]' ).height();
+								header_height = 50+$( '.ui-page-active [data-role="header"]' ).height();
 							}
 
 							// scroll the page
-							$.mobile.silentScroll( position.top - header_height );
+							$.mobile.silentScroll(position.top - header_height );
 						}
 					});
 				}
