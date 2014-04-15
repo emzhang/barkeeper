@@ -144,10 +144,10 @@
       <div id="drinks">
 
         <ul id="mylistview" data-role="listview" data-autodividers="true">
-                <li class="list-group-item">Appletini</li>
+<!--                 <li class="list-group-item">Appletini</li>
                 <li class="list-group-item">Gin and tonic</li>
                 <li class="list-group-item">Leap frog</li>
-                <li class="list-group-item">Rum and coke</li>
+                <li class="list-group-item">Rum and coke</li> -->
               
         </ul>
     </li>
@@ -167,7 +167,7 @@
     
     <script type="text/javascript">
       $(function(){
-        $( '#mylistview' ).alphascroll();
+        // $( '#mylistview' ).alphascroll();
         $.extend({
           getUrlVars : function() {
               console.log(window.location.href);
@@ -196,14 +196,16 @@
           return text;
         };
 
-        // for(var drink in drinks){
-        //   var ingredients = drinks[drink];
+        for(var drink in drinks){
+          var ingredients = drinks[drink];
 
-        //   var drinkRow = $("<a class='list-group-item'></a>");
-        //   $(drinkRow).html(drink);
-        //   $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
-        //   $(".list-group").append(drinkRow);
-        // }
+          var drinkRow = $("<li class='list-group-item'></li>");
+          $(drinkRow).html(drink);
+          $(drinkRow).append("<br/><span class='ingredients'>" + ingredients + "</span>");
+          $("#mylistview").append(drinkRow);
+
+        }
+        $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
         $(".list-group-item").attr("data-toggle", "modal");
         $(".list-group-item").attr("data-target","#myModal");
