@@ -134,25 +134,7 @@
 
       </div>
     </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Current order</h4>
-          </div>
-          <div class="modal-body">
-            
-            <!-- <span id="orders"></span> -->
-            <table id="orders"></table>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveDrinks">Checkout</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <div class="jumbotron">
       <div id="dead" class="col-md-12"></div>
@@ -206,7 +188,6 @@
 
         var drinkKeys = Object.keys(drinks);
         drinkKeys.sort();
-        console.log(drinkKeys);
 
         for(var i = 0; i < drinkKeys.length; i++){
           var ingredients = drinks[drinkKeys[i]];
@@ -271,9 +252,8 @@
 
           drinkRow.append(addDecBtnCell);
           $("#mylistview").append(drinkRow);
-
-
         }
+
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
         $("#saveDrinks").on("click", function(){
@@ -282,8 +262,7 @@
             // TODO: clean up the string from .html();
             drinks[$(element).find("label").html().substring(0,$(element).find("label").html().indexOf("<"))] = $(element).find("input").val();
           });
-          console.log(drinks);
-          console.log( JSON.stringify(drinks));
+
           // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
         });
