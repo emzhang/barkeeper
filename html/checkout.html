@@ -107,7 +107,7 @@
                     </table>
                 </div>
             </div>
-            <a class="btn btn-lg btn-default" href="./pending_orders.html" role="button">Pay now</a>
+            <a id="pay_now" class="btn btn-lg btn-default" role="button">Pay now</a>
             <a class="btn btn-lg btn-default" href="./pending_orders.html" role="button">Add to existing tab</a>
             <a class="btn btn-lg btn-default" href="./new_tab.html" role="button">Add to new tab</a>
         </div>
@@ -115,12 +115,27 @@
 
 
 
-    </div> <!-- /container -->
+    <!-- /container -->
 
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        // This allows the Javascript code inside this block to only run when the page
+        // has finished loading in the browser.
+        $(document).ready(function() {
+            $("#pay_now").click(function() {
+                var c = confirm("Are you sure you want to charge now?");
+                if (c) {
+                    //redirect to pending orders
+                    document.location = "./pending_orders.html";
+                }
+            });
+        });
+
+    </script>
   </body>
 </html>
