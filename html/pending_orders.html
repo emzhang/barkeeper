@@ -25,8 +25,10 @@
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/default.css">
+
+
     <!-- Jumbotron template CSS  -->
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../css/jumbotron-narrow.css" rel="stylesheet">
 
 
      <link href="../css/default.css" rel="stylesheet">
@@ -73,19 +75,24 @@
     <div class="panel-group" id="accordion" >
 
    <div class="panel panel-success">
-    <div class="panel-heading">
+    <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <a class="accordion-toggle">
           Ready to Serve
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse">
+    <div id="collapseOne" class="panel-collapse collapse in">
       <ul class="list-group">
        
         <li class="list-group-item">
           <div class="panel panel-default">
-            <div class="panel-heading">Menendez, Walter</div>
+            <div class="panel-heading"> <b> Bitdiddle, Ben</b><span class="addButtonName" id="Bitdiddle">
+              <button type="button" class="btn btn-default btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
             <!-- <div class="panel-body"> -->
               <ul class="list-group">
                 <a class="list-group-item">
@@ -101,20 +108,24 @@
   </div>
 
   <div class="panel panel-warning" >
-    <div class="panel-heading">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a class="accordion-toggle">
           Orders being made
         </a>
       </h4>
     </div>
 
-    <div id="collapseTwo" class="panel-collapse collapse in">
+    <div id="collapseTwo" class="panel-collapse collapse">
       <ul class="list-group">
         <li class="list-group-item">
           <div class="panel panel-default">
-            <div class="panel-heading">Zhang, Emily</div>
-            <!-- <div class="panel-body"> -->
+            <div class="panel-heading"><b>Zhang, Emily</b><span class="addButtonName" id="Zhang">
+              <button type="button" class="btn btn-default btn-xs">
+        <span class='glyphicon glyphicon-plus'></span><a href="drink_selection.html">Add Drink</a>
+    </button>
+
+            </span></div>
               <ul class="list-group">
                 <a class="list-group-item ">
                   <span class="badge">1</span>
@@ -129,13 +140,16 @@
                   Long Island
                 </a>
               </ul>
-            <!-- </div> -->
           </div>
         </li>
         <li class="list-group-item">
           <div class="panel panel-default">
-            <div class="panel-heading">Shuman, Andrew</div>
-            <!-- <div class="panel-body"> -->
+            <div class="panel-heading"><b>Shuman, Drew </b><span class="addButtonName" id="Shuman">
+              <button type="button" class="btn btn-default btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
               <ul class="list-group">
                 <a class="list-group-item">
                   <span class="badge">5</span>
@@ -150,34 +164,16 @@
                   Long Island
                 </a>
               </ul>
-            <!-- </div> -->
           </div>
         </li>
       </ul>
-      <!-- <span class="list-group"> -->
-<!--         <div class="list-group">
-        <a href="#" class="list-group-item">
-      
-        <h4 class="list-group-item-heading">Zhang, Emily</h4>
-        <p class="list-group-item-text"> 2 Long Island, 4 Whiskey</p>
-          </a>
-        </div> -->
-    <!-- <div id="collapseTwo" class="panel-collapse collapse in"> -->
-      <!-- <span class="list-group"> -->
-<!--         <h4 class="list-group-item-heading">Shuman, Drew</h4>
-        <div class="list-group">
-          <a href="#" class="list-group-item">
-           
-            <p class="list-group-item-text">Port <span class="badge pull-right">10</span></p>
-          </a>
-        </div> -->
-      <!-- </span> -->
+
     </div>
   </div>
   <div class="panel panel-danger">
-    <div class="panel-heading">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a class="accordion-toggle">
           Orders not yet started
         </a>
       </h4>
@@ -188,24 +184,27 @@
        
         <li class="list-group-item">
           <div class="panel panel-default">
-            <div class="panel-heading">Paggi, Nick</div>
-            <!-- <div class="panel-body"> -->
+            <div class="panel-heading"><b>Paggi, Nick</b> <span class="addButtonName" id="Paggi">
+              <button type="button" class="btn btn-default btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
               <ul class="list-group">
                 <a class="list-group-item">
                   <span class="badge">1</span>
                   Fireball
                 </a>
               </ul>
-            <!-- </div> -->
           </div>
         </li>
       </ul>
     </div>
   </div>
   <div class="panel panel-info">
-    <div class="panel-heading">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+        <a class="accordion-toggle">
           Already Served
         </a>
       </h4>
@@ -215,15 +214,18 @@
        
         <li class="list-group-item">
           <div class="panel panel-default">
-            <div class="panel-heading">Laverty, Katie</div>
-            <!-- <div class="panel-body"> -->
+            <div class="panel-heading"><b>Laverty, Katie</b> <span class="addButtonName" id="Laverty">
+              <button type="button" class="btn btn-default btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
               <ul class="list-group">
                 <a class="list-group-item">
                   <span class="badge">1</span>
                   Appletini
                 </a>
               </ul>
-            <!-- </div> -->
           </div>
         </li>
       </ul>
@@ -243,5 +245,34 @@
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+     <script>
+      $(function(){
+        $(".addButtonName#Bitdiddle").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Bitdiddle";
+        });
+
+      $(function(){
+        $(".addButtonName#Zhang").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Zhang";
+        });
+
+      $(function(){
+        $(".addButtonName#Shuman").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Shuman";
+        });
+
+      $(function(){
+        $(".addButtonName#Paggi").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Paggi";
+        });
+
+      $(function(){
+        $(".addButtonName#Laverty").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Laverty";
+        });
+
+      });
+    </script>
   </body>
 </html>
