@@ -81,7 +81,7 @@
       }
       
       li[role="heading"]{
-        background-color: #54B2CC;
+        background-color: #2846ED;
         
         font-weight: bold;
         padding-left: 10px;
@@ -96,8 +96,19 @@
         bottom:0px;
         height:60px;
         width:100%;
-        background:#78EB7A; 
+        background:#78EB7A;
       }
+
+        .navbar {
+            background-color: #2846ED;
+            border: 0;
+    
+        }
+
+      .navbar a {
+        color: white !important;
+      }
+      
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
@@ -117,10 +128,27 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./choose_mode.html" rel="external">Home</a></li>
-                <li><a href="./choose_mode.html" rel="external">Switch to Bartending</a></li>
-                <li><a href="./all_tabs.html">All Tabs</a></li>
-                <li><a href="./index.html" rel="external">Logout</a></li>
+                <li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #2846ED">Home</a></li>
+                <li><a href="./choose_mode.html" rel="external" style="background-color: #A60808">Switch to Bartending</a></li>
+                <li><a href="./all_tabs.html" style="background-color: #2846ED">All Tabs</a></li>
+                <li><a href=".login.html" rel="external" style="background-color: #2846ED">Logout</a></li>
+
+                <!-- for use if we want dropdown in menu-->
+
+                
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
+
               </ul>
             </div>
           </div>
