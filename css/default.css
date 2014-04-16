@@ -32,3 +32,11 @@ body {
 	font-family: 'Lily Script One', cursive;
 	font-size: 19pt;
 }
+
+.title {
+	font-family: 'Lily Script One', cursive;
+	pointer-events: none;
+   	cursor: default;
+   	color: #A80808;
+   	font-size: 72pt;
+}
