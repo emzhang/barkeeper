@@ -1,13 +1,13 @@
 .activeDrink {
-	background-color:#A60808;
+	background-color:#BF3330;
 	color: black;
 }
 .notMineDrink {
-	background-color:grey;
+	background-color:gray;
 	color: black;
 }
 .mine{
-	background-color:orange;
+	background-color:#FFAC40;
 	color: black;
 }
 .ui-loader{
