@@ -22,3 +22,6 @@ body {
 .ui-loader{
 	color:white;
 }
+.navbar a{
+	color:white !important;
+}
