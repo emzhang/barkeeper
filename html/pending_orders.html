@@ -99,7 +99,7 @@
       <ul class="list-group">
        
         <li class="list-group-item">
-          <div class="panel panel-default">
+          <div class="panel panel-default" >
             <div class="panel-heading"> <b> Bitdiddle, Ben</b><span class="addButtonName" id="Bitdiddle">
               <button type="button" class="btn btn-default btn-sm">
         <span class='glyphicon glyphicon-plus'></span> Add Drink
@@ -193,7 +193,7 @@
     </div>
 
     <div id="collapseThree" class="panel-collapse collapse">
-          <ul class="list-group">
+          <ul class="list-group" id="demo">
        
         <li class="list-group-item">
           <div class="panel panel-default">
@@ -278,6 +278,10 @@
               return $.getUrlVars()[name];
           }
         });
+
+        if($.getUrlVar("added") !== undefined){
+          $("#demo").show();
+        } else $("#demo").hide();
       });
 
 
