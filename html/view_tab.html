@@ -24,13 +24,15 @@
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-    <link href="../css/default.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+     <link href="../css/default.css" rel="stylesheet">
 
     <style type="text/css">
       th {
@@ -45,6 +47,16 @@
         margin-left: auto;
         margin-right: auto;
         position: relative;
+      }
+
+            .navbar {
+        background-color: #2846ED;
+        border: 0;
+        
+      }
+
+      .navbar a {
+        color: white !important;
       }
     </style>
 
@@ -69,13 +81,10 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./choose_mode.html">Home</a></li>
-                <li><a href="./choose_mode.html">Switch to Bartending</a></li>
-                <li><a href=".login.html">Logout</a></li>
-                <li style="left: 63.75%; font-weight: bold;">
-
-                  <a href="#" style="color:white;">Jason</a>
-                </li>
+                <li class="active"><a href="./choose_mode.html" style="background-color: #2846ED">Home</a></li>
+                <li><a href="./choose_mode.html" style="background-color: #A60808">Switch to Bartending</a></li>
+                <li><a href="./all_tabs.html">All Tabs</a></li>
+                <li><a href="./index.html">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -116,8 +125,6 @@
           <td></td>
           <td><a id="add-drink" class="btn btn-default">add drink</a></td>
         </tr>
-<!--       </table>
-      <table id="drinks"> -->
         <th>
           <tr>
           <td><strong>Drink</strong></td>
@@ -126,19 +133,14 @@
         </tr>
         </th>
         <tr>
-          <td>Drink 1</td>
-          <td>4</td>
-          <td>$5.99</td>
-        </tr>
-        <tr>
-          <td>Drink 2</td>
-          <td>4</td>
+          <td>Gin and Tonic</td>
+          <td>1</td>
           <td>$5.99</td>
         </tr>
         <tr>
           <td></td>
           <td><strong>Total</strong></td>
-          <td><strong>$11.98</strong></td>
+          <td><strong>$5.99</strong></td>
         </tr>
       </table>
     </div>

@@ -7,8 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   <!--  <meta name="viewport" content="user-scalable=no, width=device-width" />
- -->
     <!-- Eliminate url and button bars if added to home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
@@ -18,23 +16,31 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <meta name="viewport"
-    content="user-scalable=no, width=device-width" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
     <link rel="shortcut icon" href="../assets/favicon.ico">
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/default.css">
-
 
     <!-- Jumbotron template CSS  -->
     <link href="../css/jumbotron-narrow.css" rel="stylesheet">
 
-
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
 
+     <style type="text/css">
+           .navbar {
+        background-color: #2846ED;
+        border: 0;
+        
+      }
+
+      .navbar a {
+        color: white !important;
+      }
+      </style>
     <!-- Remember to change this! -->
-    <title>Barkeeper Template</title>
   </head>
 
   <body ontouchmove="BlockMove(event);">
@@ -54,13 +60,11 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="./id_check.html">Check Id</a></li>
-                <li><a href="./choose_mode.html">Switch to Bartending</a></li>
-                <li><a href="#">Logout</a></li>
-                <li style="left: 33%; font-weight: bold;">
-                  <a href="#" style="color:white;">Jason</a>
-                </li>
+                <li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #2846ED">Home</a></li>
+                <li><a href="./id_check.html" style="background-color: #2846ED">Check ID</a></li>
+                <li><a href="./choose_mode.html" rel="external" style="background-color: #A60808">Switch to Bartending</a></li>
+                <li><a href="./all_tabs.html" style="background-color: #2846ED">All Tabs</a></li>
+                <li><a href=".login.html" rel="external" style="background-color: #2846ED">Logout</a></li>
               </ul>
             </div>
           </div>
