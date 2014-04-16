@@ -19,3 +19,7 @@ body {
 	font-family: 'Lily Script One', cursive;
 	font-size: 19pt;
 }
+
+.ui-loader{
+	color:white;
+}
