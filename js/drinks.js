@@ -3,5 +3,6 @@ var drinks = {
   "Leap frog": "Gin, ginger ale, lemon juice",
   "Mimosa": "Champagne, orange juice",
   "Bloody Mary": "Vodka, tomato juice",
-  "Captain Coke": "Rum, coke"
+  "Captain Coke": "Rum, coke",
+  "Fireball": "Cinnamon whiskey"
 };
