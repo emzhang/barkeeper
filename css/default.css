@@ -17,8 +17,10 @@ body {
 
 .navbar-brand {
 	font-family: 'Lily Script One', cursive;
-	font-size: 18pt;
+	font-size: 19pt;
+	;
 }
+
 .ui-loader{
 	color:white;
 }
