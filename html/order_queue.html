@@ -40,7 +40,9 @@
 
 <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <!-- <div class="container"> -->
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#A60808;border-color:#A60808;" role="navigation">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,9 +55,26 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a rel="external" href="./choose_mode.html">Home</a></li>
-                <li><a href="./choose_mode.html" rel="external">Switch to Serving</a></li>
-                <li><a href="./index.html" rel="external">Logout</a></li>
+                <li class="active"><a rel="external" href="./choose_mode.html" style="background-color:#A60808;border-color:#A60808;">Home</a></li>
+                <li><a href="./choose_mode.html" rel="external" style="background-color:#2846ED;border-color:#A60808;">Switch to Serving</a></li>
+                <li><a href="./login.html" rel="external">Logout</a></li>
+
+                <!-- for use if we want dropdown in menu-->
+
+                
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li> -->
+
               </ul>
             </div>
           </div>
