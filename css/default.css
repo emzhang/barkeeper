@@ -5,3 +5,7 @@
 .panel-heading {
    cursor: pointer;
 }
+
+.selector {
+padding-right: 10px !important;
+}
