@@ -5,3 +5,8 @@
 .panel-heading {
    cursor: pointer;
 }
+
+.btn-sm {
+padding-top: 5px !important;
+line-height: 1;
+}
