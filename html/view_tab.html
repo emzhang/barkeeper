@@ -24,48 +24,36 @@
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
-     <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/checkout.css" rel="stylesheet">
 
     <style type="text/css">
-      th {
-        font-weight: bold;
-      }
-
-      tr, td {
-        padding-right: 30px;
-        padding-bottom: 20px;
-      }
-      table {
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-      }
-
-            .navbar {
-        background-color: #6B90D4;
-        border: 0;
-        
-      }
+        .navbar {
+            background-color: #6B90D4;
+            border: 0;
+    
+        }
 
       .navbar a {
         color: white !important;
       }
 
-      .addButtonName {
-        padding: 5px;
+      #tab {
+        margin: 5px;
+      }
+
+      #pay_now {
+        margin: 5px;
       }
     </style>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+     <link href="../css/default.css" rel="stylesheet">
 
     <!-- Remember to change this! -->
-    <title>View Tab</title>
+    <title>Tab summary</title>
   </head>
 
   <body ontouchmove="BlockMove(event);">
@@ -85,7 +73,7 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #6B90D4">Home</a></li>-->
+
                 <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
                 <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
                 <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
@@ -97,106 +85,42 @@
 
       </div>
     </div>
-
-    <div class="jumbotron">
     <div class="container">
-      <!-- <div class="row">
-        <div class="col-md-8"><h2>Tab for Ben Bitdiddle</h2></div>
-        <div class="col-md-4"><a id="add-drink" class="btn btn-default" href="./drink_selection.html">add drink</a></div>
-      </div>
-      <div class="container">
-        <div class="row list-group">
-          <div class="col-md-4">Drink</div>
-          <div class="col-md-4">4</div>
-          <div class="col-md-4">$12.99</div>
+        <div class="jumbotron">
+            <h1>Tab for <br/> Nick Paggi</h1>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <tr style="border-top-style: hidden;">
+                                <th><strong>Drink</strong></th>
+                                <th><strong>Quantity</strong></th>
+                                <th><strong>Price</strong></th>
+                        </tr>
+                        <tr>
+                            <td>Fireball</td>
+                            <td>4</td>
+                            <td>$5.99</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td><strong>$23.96</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <a class="btn btn-lg btn-primary" href="./drink_selection.html?tab=Paggi">+ Add drink </a>
         </div>
-
-        <div class="row list-group">
-          <div class="col-md-4">Drink</div>
-          <div class="col-md-4">4</div>
-          <div class="col-md-4">$12.99</div>
-        </div>
-
-        <div class="row list-group">
-          <div class="col-md-4"></div>
-          <div class="col-md-4"><strong>Total</strong></div>
-          <div class="col-md-4">$25.94</div>
-        </div>
-      </div> -->
-
-      <table>
-        <tr>
-          <td><h2>Tab for Nick Paggi</h2></td>
-          <td></td>
-          <td><span class="addButtonName">
-              <button type="button" class="btn btn-primary btn-md" id="add-drink">
-        <span class='glyphicon glyphicon-plus' ></span> Add Drink
-    </button>
-
-            </span></td>
-
-        </tr>
-        <th>
-          <tr>
-          <td><strong>  Drink</strong></td>
-          <td><strong>Quantity</strong></td>
-          <td><strong>Price</strong></td>
-        </tr>
-        </th>
-        <tr>
-          <td>Fireball</td>
-          <td>4</td>
-          <td>$5.99</td>
-        </tr>
-        <tr>
-          <td></td>
-
-          <td><strong>Total</strong></td>
-          <td><strong>$23.96</strong></td>
-        </tr>
-      </table>
     </div>
-  </div>
 
 
-<!-- /container -->
+
+    <!-- /container -->
 
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
-
-
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-        <script>
-      $(function(){
-
-        $.extend({
-          getUrlVars : function() {
-              console.log(window.location.href);
-              var vars = [], hash;
-              var hashes = window.location.href.slice(
-                      window.location.href.indexOf('?') + 1).split('&');
-              for ( var i = 0; i < hashes.length; i++) {
-                  hash = hashes[i].split('=');
-                  vars.push(hash[0]);
-                  vars[hash[0]] = hash[1];
-              }
-              return vars;
-          },
-          getUrlVar : function(name) {
-              return $.getUrlVars()[name];
-          }
-        });
-
-        if($.getUrlVar("added"))
-
-        $("#add-drink").on("click", function(){
-          // TODO: how do we know the tab for this screen in the first place?
-          window.location.href = "./drink_selection.html?tab=Paggi";
-
-        });
-      });
-    </script>
   </body>
 </html>
