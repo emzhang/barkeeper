@@ -6,6 +6,7 @@
    cursor: pointer;
 }
 
-.selector {
-padding-right: 10px !important;
+.btn-sm {
+padding-top: 5px !important;
+line-height: 1;
 }
