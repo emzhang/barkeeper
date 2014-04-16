@@ -85,11 +85,11 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #6B90D4">Home</a></li>
+                <!--<li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #6B90D4">Home</a></li>-->
                 <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330">Switch to Bartending</a></li>
-                <li><a href="./all_tabs.html" rel="external">All Tabs</a></li>
-                <li><a href="./index.html" rel="external">Logout</a></li>
+                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
+                <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
+                <li><a href="./index.html" rel="external" style="background-color: #6B90D4;">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -126,7 +126,7 @@
 
       <table>
         <tr>
-          <td><h2>Tab for Ben Bitdiddle</h2></td>
+          <td><h2>Tab for Nick Paggi</h2></td>
           <td></td>
           <td><span class="addButtonName">
               <button type="button" class="btn btn-primary btn-md" id="add-drink">
@@ -134,6 +134,7 @@
     </button>
 
             </span></td>
+
         </tr>
         <th>
           <tr>
@@ -143,14 +144,15 @@
         </tr>
         </th>
         <tr>
-          <td>Gin and Tonic</td>
-          <td>1</td>
+          <td>Fireball</td>
+          <td>4</td>
           <td>$5.99</td>
         </tr>
         <tr>
           <td></td>
-          <td><strong><i>Total</i></strong></td>
-          <td><strong><i>$5.99</i></strong></td>
+
+          <td><strong>Total</strong></td>
+          <td><strong>$23.96</strong></td>
         </tr>
       </table>
     </div>
@@ -168,9 +170,30 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
         <script>
       $(function(){
+
+        $.extend({
+          getUrlVars : function() {
+              console.log(window.location.href);
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+        if($.getUrlVar("added"))
+
         $("#add-drink").on("click", function(){
           // TODO: how do we know the tab for this screen in the first place?
-          window.location.href = "./drink_selection.html?tab=Bitdiddle";
+          window.location.href = "./drink_selection.html?tab=Paggi";
 
         });
       });
