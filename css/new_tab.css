@@ -1,0 +1,13 @@
+.input-group {
+    padding: 5px;
+}
+
+.form-control {
+
+}
+
+label {
+    display: table-cell;
+    padding:5px;
+    font-size: 24px;
+}
