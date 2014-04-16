@@ -31,13 +31,21 @@
 
     <style type="text/css">
         .navbar {
-            background-color: #2846ED;
+            background-color: #6B90D4;
             border: 0;
     
         }
 
       .navbar a {
         color: white !important;
+      }
+
+      #tab {
+        margin: 5px;
+      }
+
+      #pay_now {
+        margin: 5px;
       }
     </style>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -65,26 +73,11 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./choose_mode_B.html" rel="external" style="background-color: #2846ED">Home</a></li>
+                <li class="active"><a href="./choose_mode_B.html" rel="external" style="background-color: #6B90D4">Home</a></li>
                 <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
                 <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330">Switch to Bartending</a></li>
                 <li><a href="./all_tabs.html" rel="external">All Tabs</a></li>
-                <li><a href="./index.html" rel="external" style="background-color: #2846ED">Logout</a></li>
-                <!-- for use if we want dropdown in menu-->
-
-
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
+                <li><a href="./index.html" rel="external" style="background-color: #6B90D4">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -116,9 +109,11 @@
                     </table>
                 </div>
             </div>
-            <a id="pay_now" class="btn btn-lg btn-default" role="button">Pay now</a>
-            <a class="btn btn-lg btn-default" href="./all_tabs.html" role="button">Add to existing tab</a>
-            <a class="btn btn-lg btn-default" href="./new_tab.html" role="button">Add to new tab</a>
+            <a id="pay_now" class="btn btn-lg btn-primary" role="button">Pay now</a>
+
+            <a class="btn btn-lg btn-primary" href="./all_tabs.html" role="button" id="tab">Add to existing tab</a>
+            <br>
+            <a class="btn btn-lg btn-primary" href="./new_tab.html" role="button" id="tab">Add to new tab</a>
         </div>
     </div>
 

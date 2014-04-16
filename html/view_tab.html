@@ -58,6 +58,10 @@
       .navbar a {
         color: white !important;
       }
+
+      .addButtonName {
+        padding: 5px;
+      }
     </style>
 
     <!-- Remember to change this! -->
@@ -83,7 +87,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="./choose_mode.html" rel="external" style="background-color: #6B90D4">Home</a></li>
                 <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #A60808">Switch to Bartending</a></li>
+                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330">Switch to Bartending</a></li>
                 <li><a href="./all_tabs.html" rel="external">All Tabs</a></li>
                 <li><a href="./index.html" rel="external">Logout</a></li>
               </ul>
@@ -124,11 +128,16 @@
         <tr>
           <td><h2>Tab for Ben Bitdiddle</h2></td>
           <td></td>
-          <td><a id="add-drink" class="btn btn-default">add drink</a></td>
+          <td><span class="addButtonName">
+              <button type="button" class="btn btn-primary btn-md" id="add-drink">
+        <span class='glyphicon glyphicon-plus' ></span> Add Drink
+    </button>
+
+            </span></td>
         </tr>
         <th>
           <tr>
-          <td><strong>Drink</strong></td>
+          <td><strong>  Drink</strong></td>
           <td><strong>Quantity</strong></td>
           <td><strong>Price</strong></td>
         </tr>
@@ -140,8 +149,8 @@
         </tr>
         <tr>
           <td></td>
-          <td><strong>Total</strong></td>
-          <td><strong>$5.99</strong></td>
+          <td><strong><i>Total</i></strong></td>
+          <td><strong><i>$5.99</i></strong></td>
         </tr>
       </table>
     </div>

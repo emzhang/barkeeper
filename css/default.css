@@ -41,6 +41,8 @@ body {
    	font-size: 72pt;
 }
 
-.btn-danger {
-	color: ;
+.btn-primary {
+	background-color: #B8B8B8;
+	border-color: #B8B8B8;
+	color: black;
 }
