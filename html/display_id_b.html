@@ -52,10 +52,10 @@
             </div>
             <div class="navbar-collapse collapse in" style="height: auto;">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="./choose_mode_B.html" style="background-color:#BF3330;border-color:#BF3330;">Home</a></li>
-                <li><a href="./choose_mode_B.html" style="background-color:#6B90D4;border-color:#6B90D4;">Switch To Serving </a></li>
-                <li><a href="./all_tabs.html">All Tabs</a></li>
-                <li><a href="./index.html">Logout</a></li>
+                <li><a href="./id_check_b.html" rel="external">Check ID</a></li>
+                <li><a href="./pending_orders.html" rel="external" style="background-color:#6B90D4;border-color:#6B90D4;">Switch to Serving</a></li>
+                <li><a href="./stock.html" rel="external">Stock</a></li>
+                <li><a href="./index.html" rel="external">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -102,7 +102,7 @@
         
         $("#stateName").append("<div class='span12'><img src='../stateIDs/"+$.getUrlVar("state")+"' style='width:100%''></img></div>");
         $("#stateName").append("<div class='panel-heading span12' ></div>");
-        $("#stateName").append("<div class='span12'><a class='btn btn-lg btn-success' href='./id_check_b.html' role='button'>Select Another ID</a><p></p><a class='btn btn-lg btn-success' href='./pending_orders.html' role='button'>Go Back Home</a></div>");
+        $("#stateName").append("<div class='span12'><a class='btn btn-lg btn-success' href='./id_check_b.html' role='button'>Select Another ID</a><p></p><a class='btn btn-lg btn-success' href='./order_queue.html' role='button'>Go Back Home</a></div>");
         var today = new Date();
          var displayDate=new Date();
          displayDate.setFullYear(today.getFullYear()-21);
