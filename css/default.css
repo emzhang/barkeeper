@@ -16,17 +16,13 @@ body {
 
 }
 
-
-
 .ui-loader{
 	color:white;
 }
 
-.btn-success {
 
 }
-.navbar a{
-	
+.navbar
 }
 
 .title {
@@ -42,13 +38,16 @@ body {
    	font-size: 72pt;
 }
 
-.btn-bartending {
+.bartending {
 	background-color: #FF6F5B;
 	color: #1D2529;
 }
 
-.btn-serving {
+.serving {
 	background-color: #2A99D4;
 	color: #1D2529;
 }
 
+.navbar-serving {
+	background-color: ;
+}
