@@ -1,9 +1,20 @@
+.a{
+	line-height:0px;
+}
+
+
 .row {
     border: 3px solid #000;
     float: top;
     z-index:10;
 }
 
+.img{
+	padding-top:10px !important;
+	padding-bottom:3px;
+	line-height:0px;
+	width:60px;
+}
 .row:nth-child(n+2) {
     margin-top: -3px;
 }
