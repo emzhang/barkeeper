@@ -8,12 +8,17 @@
     margin-top: -3px;
 }
 
+
 .activeDrink {
 	background-color:#BF3330;
 	color: black;
 }
 .notMineDrink {
 	background-color:gray;
+	color: black;
+}
+.done {
+	background-color:green;
 	color: black;
 }
 .mine{
@@ -24,9 +29,13 @@
 	color:white;
 }
 .under{
+	border: 3px solid #000;
+    float: top;
 	position: absolute;
     z-index:0;
     width:97px;
     background-color:green;
 }
-
+.under:nth-child(n+2) {
+    margin-top: -3px;
+}
