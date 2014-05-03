@@ -6,10 +6,11 @@
       var startswipe=null;
     	function addDrink(name, ingredients){
     		numdrinks+=1;
-			$("#queue").append("<div><div class='row under' id='"+numdrinks+"'><div class='panel-heading'><p>Done</p></div></div><div class='row activeDrink' id=drink"+numdrinks+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
+			$("#queue").append("<div><div class='row under' id='under"+numdrinks+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row activeDrink' id=drink"+numdrinks+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
     		);
     		var drinkname="#drink"+numdrinks;
     		var collapsename="#collapse"+numdrinks;
+        var undername="#under"+numdrinks
     		var spacername="#spacer"+numdrinks;
         var buttonname="#btn"+numdrinks;
     		$(collapsename).toggle();
@@ -46,7 +47,7 @@
      //       }
   			// });
   			var goForIt=true;
-  		
+        var kill=false
   			$(drinkname).click(function(event){
     			event.preventDefault;
     			if (goForIt){
@@ -55,9 +56,12 @@
               $(drinkname).draggable(
                   {
                     axis: "x",
+                    //containment:[$(drinkname).parent.position.left,0,0,0],
                     start: function( event, ui ) {goForIt=false;},
-                    drag: function( event, ui ) {if (ui.position.left>95){$(drinkname).remove();}},
-                    revert: true
+                    drag: function( event, ui ) {if (ui.position.left>95){
+                    if ($(drinkname).hasClass("mine")){$(drinkname).toggleClass('mine done').draggable("disable");}}},
+                    stop: function(){if (kill){$(drinkname).remove(); $(undername).remove();}},
+                    revert: function(event,ui){if ($(drinkname).hasClass("done")){kill=true;}return true;}
                   });
             }
             else if ($(drinkname).hasClass("mine")){
@@ -71,12 +75,20 @@
         $(buttonname).click(function(event){
           goForIt=false;
            $(collapsename).toggle();
+           sizing(undername,drinkname)
 
         });
         
         
         $(drinkname).click();$(drinkname).click();
+        function sizing(undername,drinkname){
+          $(undername).css("width",$(drinkname).css("width"));
+          $(undername).css("height",$(drinkname).css("height"));
+
+        }
+        sizing(undername,drinkname);
     	}
+
 
     	function notmine(drinkNum){
     		$("#drink"+drinkNum).toggleClass('activeDrink notMineDrink');

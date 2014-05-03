@@ -12,3 +12,12 @@
 input {
     width: 70px;
 }
+
+img {
+    width: 100px;
+    float: left;
+}
+
+.item {
+    display: inline-block;
+}
