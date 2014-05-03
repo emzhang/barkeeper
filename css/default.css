@@ -13,6 +13,7 @@ line-height: 1;
 
 body {
 	font-family: 'Open Sans', sans-serif;
+
 }
 
 
@@ -25,28 +26,29 @@ body {
 
 }
 .navbar a{
-	color:white !important;
-}
-
-.navbar-brand {
-	font-family: 'Lily Script One', cursive;
-	font-size: 19pt;
+	
 }
 
 .title {
 	font-family: 'Lily Script One', cursive;
+	font-size: 19pt;
+}
+
+.barkeeper-title {
+	font-family: 'Lily Script One', cursive;
 	pointer-events: none;
    	cursor: default;
-   	color: #32C99C;
+   	color: #BA1D29;
    	font-size: 72pt;
 }
 
 .btn-bartending {
-	background-color: #B8B8B8;
-	border-color: #B8B8B8;
-	color: black;
+	background-color: #FF6F5B;
+	color: #1D2529;
 }
 
-.badge {
-	
+.btn-serving {
+	background-color: #2A99D4;
+	color: #1D2529;
 }
+
