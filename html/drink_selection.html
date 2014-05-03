@@ -94,7 +94,7 @@
         z-index: 1;
         position: fixed;
         top: 0;
-        width: 200px;
+        width: 300px;
         height: 100%;
         float: right;
         background:#1D8C00;
@@ -103,8 +103,17 @@
       #checkout > p, #checkout > table {
         position: relative;
         top: 20%;
-        text-align: center;
+        /*text-align: center;*/
+        margin: 0 auto;
 
+      }
+
+      table {
+        margin: 0 auto;
+      }
+
+      td {
+        padding-right: 15px;
       }
 
       .navbar {
@@ -178,7 +187,7 @@
     </div>
 
     <div class="dropdown-menu-right" id="checkout">
-      <p>Checkout</p>
+      <p style="text-align: center;">Checkout </br> Total: <span id="total"> </span></p>
       <table id="checkout_table">
       </table>
     </div>
@@ -193,7 +202,6 @@
     <script type="text/javascript" src="../js/drinks.js"></script>
     
     <script type="text/javascript">
-    // $("#checkout").animate({width: "toggle"});
       $(function(){
 
         $.extend({
@@ -223,6 +231,16 @@
           return total;
         };
 
+        var computeTotal = function(){
+          var total = 0;
+          for(var i = 0; i < drinkKeys.length; i++){
+            var drink = drinkKeys[i];
+            // var row = $("tr[drink="+ drink+ "]");
+            total += $("input[drink='" + drink + "']").val() * drinks[drinkKeys[i]][1];
+          }
+          return total;
+        };
+
         var makeID = function(){
           var text = "";
           var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -237,13 +255,13 @@
         drinkKeys.sort();
 
         for(var i = 0; i < drinkKeys.length; i++){
-          var ingredients = drinks[drinkKeys[i]];
+          var ingredients = drinks[drinkKeys[i]][0];
 
           var drinkRow = $("<li class='list-group-item'></li>");
           var drinkLabel = $("<label>" + drinkKeys[i] + "</drink>");
           drinkLabel.css("width", "200px");
           $(drinkRow).html(drinkLabel);
-          var ingredientSpan = $('<span class="ingredients">' + ingredients + '</span>');
+          var ingredientSpan = $('<span class="ingredients">' + drinks[drinkKeys[i]][1] + ", " + ingredients + '</span>');
           ingredientSpan.css("width", "200px");
           drinkRow.append("</br>");
           drinkRow.append(ingredientSpan);
@@ -253,10 +271,11 @@
           var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
           numField.attr("id", ID);
           numField.attr("drink", drinkKeys[i]);
-
+          numField.attr("price", drinks[drinkKeys[i]][1]);
           // console.log("drink name", drinkName);
           var addBtn = $("<button>+</button>");
           addBtn.attr("drink", drinkKeys[i]);
+          addBtn.attr("price", drinks[drinkKeys[i]][1]);
           addBtn.on("click", function(){
             var ID = $(this).attr("field");
             var drinkName = drinkKeys[i];
@@ -267,6 +286,7 @@
             }
 
             var name = $(this).attr("drink");
+            var price = $(this).attr("price");
 
             var numDrinks = $("#" + $(this).attr("field")).val();
             numDrinks++;
@@ -279,20 +299,21 @@
               var num = $("<td>" + numDrinks + "</td>");
               num.attr("field", ID);
               row.append(num);
+              row.append("<td>"+ price + "</td>");
               row.attr("field", ID);
               $("#checkout_table").append(row);
             } else {
               $("td[field=" + ID + "]").html(numDrinks);
             }
             
-
-            
+            $("#total").html(parseFloat(Math.round(computeTotal() * 100) / 100).toFixed(2));            
           });
           addBtn.attr("class", "drinkBtn");
           addBtn.addClass("btn");
           addBtn.attr("field", ID);
             
           var decBtn = $("<button>-</button>");
+          decBtn.attr("price", drinks[drinkKeys[i]][1]);
           decBtn.on("click", function(){
             console.log("drink name", drinkName);
 
