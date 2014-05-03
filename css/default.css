@@ -37,11 +37,11 @@ body {
 	font-family: 'Lily Script One', cursive;
 	pointer-events: none;
    	cursor: default;
-   	color: #BF3330;
+   	color: #32C99C;
    	font-size: 72pt;
 }
 
-.btn-primary {
+.btn-bartending {
 	background-color: #B8B8B8;
 	border-color: #B8B8B8;
 	color: black;
