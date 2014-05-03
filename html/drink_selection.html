@@ -91,19 +91,27 @@
       }
 
       #checkout {
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:60px;
-        width:100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        width: 200px;
+        height: 100%;
+        float: right;
         background:#1D8C00;
       }
 
-        .navbar {
-            background-color: #6B90D4;
-            border: 0;
-    
-        }
+      #checkout > p, #checkout > table {
+        position: relative;
+        top: 20%;
+        text-align: center;
+
+      }
+
+      .navbar {
+        background-color: #6B90D4;
+        border: 0;
+  
+      }
 
       .navbar a {
         color: white !important;
@@ -169,7 +177,11 @@
       </div>
     </div>
 
-    <a href="#" class="btn btn-default btn-primary btn-lg btn-block" id="checkout"> Checkout</a>
+    <div class="dropdown-menu-right" id="checkout">
+      <p>Checkout</p>
+      <table id="checkout_table">
+      </table>
+    </div>
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
 
@@ -181,6 +193,7 @@
     <script type="text/javascript" src="../js/drinks.js"></script>
     
     <script type="text/javascript">
+    // $("#checkout").animate({width: "toggle"});
       $(function(){
 
         $.extend({
@@ -200,6 +213,15 @@
               return $.getUrlVars()[name];
           }
         });
+
+        var countDrinks = function(){
+          var total = 0;
+          $("input[type=number]").each(function(){
+            total += parseInt($(this).val());
+          });
+
+          return total;
+        };
 
         var makeID = function(){
           var text = "";
@@ -231,13 +253,40 @@
           var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
           numField.attr("id", ID);
           numField.attr("drink", drinkKeys[i]);
-          
+
+          // console.log("drink name", drinkName);
           var addBtn = $("<button>+</button>");
+          addBtn.attr("drink", drinkKeys[i]);
           addBtn.on("click", function(){
-            
+            var ID = $(this).attr("field");
+            var drinkName = drinkKeys[i];
+
+            if($("#checkout").is(":hidden")){
+              $("#checkout").animate({width: "toggle"});
+
+            }
+
+            var name = $(this).attr("drink");
+
             var numDrinks = $("#" + $(this).attr("field")).val();
             numDrinks++;
             $("#" + $(this).attr("field")).val(numDrinks);
+            if( $("#checkout_table").find("tr[field=" + ID + "]").length === 0){
+              var row = $("<tr></tr>");
+              row.attr("drink", name);
+              
+              row.append("<td>"+ name + "</td>");
+              var num = $("<td>" + numDrinks + "</td>");
+              num.attr("field", ID);
+              row.append(num);
+              row.attr("field", ID);
+              $("#checkout_table").append(row);
+            } else {
+              $("td[field=" + ID + "]").html(numDrinks);
+            }
+            
+
+            
           });
           addBtn.attr("class", "drinkBtn");
           addBtn.addClass("btn");
@@ -245,10 +294,17 @@
             
           var decBtn = $("<button>-</button>");
           decBtn.on("click", function(){
+            console.log("drink name", drinkName);
+
+
             var numDrinks = $("#" + $(this).attr("field")).val();
             numDrinks--;
             numDrinks = Math.max(0, numDrinks);
             $("#" + $(this).attr("field")).val(numDrinks);
+
+            if(countDrinks() === 0){
+              $("#checkout").animate({width: "toggle"});
+            }
           });
           decBtn.attr("class", "drinkBtn");
           decBtn.addClass("btn");
@@ -257,6 +313,16 @@
           var removeBtn = $("<button>Clear</button>");
           removeBtn.button().click(function(){
             $("#" + $(this).attr("field")).val(0);
+
+            var target = $("tr[field="+ $(this).attr("field") +"]");
+
+            $(target).remove();
+
+            if(countDrinks() === 0){
+              $("#checkout").animate({width: "toggle"});
+            }
+
+
           });
           removeBtn.attr("field", ID);
 
@@ -284,11 +350,6 @@
 
         $("#checkout").on("click", function(){
           var drinks = {};
-          // $.each($("input"), function(index, element){
-          //   // TODO: clean up the string from .html();
-          //   console.log($(element).attr("drink"));
-          //   drinks[$(element).attr("drink")] = $(element).val();
-          // });
 
           $.each($("input"), function(i, element){
             if($(element).val() !== "0")
@@ -299,6 +360,8 @@
           // TODO: this...doesn't work
           window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
         });
+
+        $("#checkout").animate({width: "toggle"});
       });
     </script>
   </body>
