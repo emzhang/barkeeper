@@ -122,8 +122,8 @@
         var today = new Date();
          var displayDate=new Date();
          displayDate.setFullYear(today.getFullYear()-21);
-         var months=["jan","feb","march","april","may","june","july","august","sept","oct","nov","dec"];
-         $("#date_display").append("Valid if before today, "+months[today.getMonth()]+" "+today.getDate()+", in "+displayDate.getFullYear());
+         var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+         $("#date_display").append("Must be born before:<br>"+today.getMonth()+"-"+today.getDate()+"-"+displayDate.getFullYear());
     </script>
   </body>
 </html>
