@@ -2717,7 +2717,17 @@ select[multiple].input-lg {
 }
 .btn:hover,
 .btn:focus {
-  color: #333;
+  color: #1D2529;
+  text-decoration: none;
+}
+.btn-red:hover,
+.btn-red:focus {
+  background-color: #C44D3C;
+  text-decoration: none;
+}
+.btn-blue:hover,
+.btn-blue:focus {
+  background-color: #137BB3;
   text-decoration: none;
 }
 .btn:active,
