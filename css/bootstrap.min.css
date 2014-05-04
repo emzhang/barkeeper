@@ -2730,6 +2730,7 @@ select[multiple].input-lg {
   background-color: #137BB3;
   text-decoration: none;
 }
+f
 .btn:active,
 .btn.active {
   background-image: none;
@@ -3595,6 +3596,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
+  text-transform: uppercase;
   border-bottom: 1px solid #ddd;
 }
 .nav-tabs > li {
@@ -4795,6 +4797,8 @@ a.thumbnail.active {
   margin-bottom: 20px;
 }
 .list-group-item {
+  text-transform: uppercase;
+  font-size: 14px;
   position: relative;
   display: block;
   padding: 10px 15px;

@@ -41,7 +41,7 @@
 <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
 
-      <!-- <div class="container"> -->
+      <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
         <!-- style="background-color:#1D2529;border-color:#1D2529;" -->
@@ -58,17 +58,17 @@
               <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
             </div>
 
-              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving serving-switch" href="./pending_orders.html">Serving</a>
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving serving-switch" href="./pending_orders.html" rel="external">Serving</a>
           </div>
         </div>
-
+        </div>
       </div>
 
-    <div class="container">
+    <!-- <div class="container"> UNCOMMENT THIS FOR QUEUE TO NOT BE PAGE WIDTH--> 
     	<div class="jumbotron" id="queue">
         	<h1>Order Queue</h1>
    		</div>
-    </div>
+    <!-- </div> -->
     <script tyle="text/javascript" src="../js/drinks.js"></script>
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
