@@ -63,6 +63,22 @@ src: url('../fonts/Proxima_Nova_Regular.otf');
 
 }
 
+.jumbotron .btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 50px;
+}
+
+.jumbotron .btn-sm,
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 50px;
+}
+
 .serving-switch {
 	border-radius: 50px; 
 	background: transparent; 

@@ -29,51 +29,36 @@
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
 
-     <style type="text/css">
-           .navbar {
-        background-color: #6B90D4;
-        border: 0;
-        text-transform: uppercase;
-        
-      }
-
-      .navbar a {
-        color: white !important;
-      }
-      </style>
+    
       <title>Pending Orders</title>
   </head>
 
   <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
-      <div class="container">
 
+      <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+        <!-- style="background-color:#1D2529;border-color:#1D2529;" -->
+
+        
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="#">Barkeeper</a>
             </div>
-            <div class="navbar-collapse collapse in" style="height: auto;">
-              <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="./choose_mode_B.html" rel="external" style="background-color: #6B90D4">Home</a></li>-->
-                <li><a href="./pending_orders.html" rel="external" style="background-color: #6B90D4;">Home</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
-                <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
-                <li><a href="./index.html" rel="external" style="background-color: #6B90D4;">Logout</a></li>
-              </ul>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
+            </div>
+
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
         </div>
+        </div>
 
-      </div>
-    </div>
+      </div> 
     <div class="container">
 
 
@@ -82,8 +67,8 @@
   <div class="jumbotron">
     <h1>All Orders </h1>
 
-    <h6><button type="button" class="btn btn-default btn-md">
-        <span class='glyphicon glyphicon-plus'></span> <a href="drink_selection.html">Quick Add Drink</a>
+    <h6><button role="button" class="btn serving btn-lg" href="drink_selection.html">
+         <b>+</b> Quick Add Drink
     </button></h6>
     <div class="text-left">
     <div class="panel-group" id="accordion" >
@@ -96,14 +81,14 @@
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse">
+    <div id="collapseOne" class="panel-collapse ">
       <ul class="list-group">
        
         <li class="list-group-item">
           <div class="panel panel-default">
             <div class="panel-heading"> <b> Bitdiddle, Ben</b> <span class="addButtonName" id="Bitdiddle">
-              <button type="button" class="btn btn-default btn-sm">
-        <span class='glyphicon glyphicon-plus'></span> Add Drink
+              <button type="button" class="btn btn-default btn-xs">
+        + Add Drink
     </button>
 
             </span></div>
@@ -264,7 +249,7 @@
       $(function(){
         $.extend({
           getUrlVars : function() {
-              console.log(window.location.href);
+              // console.log(window.location.href);
               var vars = [], hash;
               var hashes = window.location.href.slice(
                       window.location.href.indexOf('?') + 1).split('&');
