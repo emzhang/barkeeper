@@ -11,42 +11,84 @@ padding-top: 5px !important;
 line-height: 1;
 }
 
-body {
-	font-family: 'Open Sans', sans-serif;
+@font-face
+{
+font-family: 'ProximaNova', sans-serif;
+src: url('../fonts/Proxima_Nova_Regular.otf');
 }
-
 
 
 .ui-loader{
 	color:white;
 }
 
-.btn-success {
-
-}
-.navbar a{
-	color:white !important;
-}
-
-.navbar-brand {
-	font-family: 'Lily Script One', cursive;
-	font-size: 19pt;
-}
-
 .title {
+	font-family: 'Lily Script One', cursive;
+	font-size: 20pt;
+	color: #BA1D29 !important;
+}
+	
+.barkeeper-title {
 	font-family: 'Lily Script One', cursive;
 	pointer-events: none;
    	cursor: default;
-   	color: #BF3330;
-   	font-size: 72pt;
+   	color: #BA1D29;
+   	font-size: 68pt;
 }
 
-.btn-primary {
-	background-color: #B8B8B8;
-	border-color: #B8B8B8;
-	color: black;
+.bartending {
+	background-color: #FF6F5B;
+	color: #1D2529;
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 0.9px;
+
+}
+.bartending:focus {
+	background-color: #C44D3C;
 }
 
-.badge {
-	
+.serving {
+	background-color: #2A99D4;
+	color: #1D2529;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+
+}
+
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 19px;
+  font-weight: bold;
+
+}
+
+.serving-switch {
+	border-radius: 50px; 
+	background: transparent; 
+	border: 4px solid #2A99D4;
+}
+.serving-switch:hover,
+.serving-switch:focus {
+	background: #2A99D4 !important; 
+}
+
+.bartending-switch {
+	border-radius: 50px; 
+	background: transparent; 
+	border: 4px solid #FF6F5B;
+}
+.bartending-switch:hover,
+.bartending-switch:focus {
+	background: #FF6F5B !important; 
+}
+
+.id_check_words {
+	text-transform: uppercase;
+	font-size: 24px;
+}
+
+.id_check_date {
+	font-weight: bold;
+	font-size: 36px;
 }
