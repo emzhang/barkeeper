@@ -21,20 +21,20 @@
 
 
 .activeDrink {
-	background-color:#BF3330;
-	color: black;
+	background-color:#FF6F5B;
+	color: #1D2529;
 }
 .notMineDrink {
-	background-color:gray;
-	color: black;
+	background-color:#82A7BA;
+	color: #1D2529;
 }
 .done {
-	background-color:green;
-	color: black;
+	background-color: #2D9647;
+	color: #1D2529;
 }
 .mine{
 	background-color:#FFAC40;
-	color: black;
+	color: #1D2529;
 }
 .ui-loader{
 	color:white;
@@ -45,7 +45,7 @@
 	position: absolute;
     z-index:0;
     width:97px;
-    background-color:green;
+    background-color: #2D9647;
 }
 .under:nth-child(n+2) {
     margin-top: -3px;

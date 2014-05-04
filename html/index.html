@@ -28,19 +28,21 @@
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
-
-    <link href="../css/bootstap.min.css" rel="stylesheet">
 
      <link href="../css/default.css" rel="stylesheet">
 
      <title>Choose Mode</title>
+      <style>
+        @font-face
+        {
+        font-family: 'Proxima Nova' sans-serif;
+        src: url('../fonts/Proxima_Nova_Regular.otf');
 
+        }
+      </style>
   </head>
-
+  
 
   <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
@@ -59,11 +61,11 @@
 <!-- </>  -->
 
       <div class="jumbotron">
-        <h1>Welcome to <a class="barkeeper-title" href="#">Barkeeper</a> </h1>
-        <h3>Are you bartending or serving drinks today?</h3>
-        <a class="btn btn-lg bartending" href="./order_queue.html" role="button">I'm bartending</a>
+        <h3>Welcome to</h3> <a class="barkeeper-title" href="#">Barkeeper</a>
+        <h3>Today I am...</h3>
+        <a class="btn btn-lg bartending" href="./order_queue.html" role="button">Bartending</a>
    
-       <a class="btn btn-lg serving" href="./pending_orders.html" role="button">I'm serving</a>
+       <a class="btn btn-lg serving" href="./pending_orders.html" role="button">Serving</a>
       </div>
 
 

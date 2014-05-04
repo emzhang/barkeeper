@@ -11,43 +11,54 @@ padding-top: 5px !important;
 line-height: 1;
 }
 
-body {
+@font-face
+{
+font-family: 'ProximaNova', sans-serif;
+src: url('../fonts/Proxima_Nova_Regular.otf');
+}
+
+/*body {
 	font-family: 'Open Sans', sans-serif;
 
-}
+}*/
 
 .ui-loader{
 	color:white;
 }
 
-
-}
-.navbar
-}
-
 .title {
 	font-family: 'Lily Script One', cursive;
-	font-size: 19pt;
+	font-size: 20pt;
+	color: #BA1D29 !important;
 }
-
+	
 .barkeeper-title {
 	font-family: 'Lily Script One', cursive;
 	pointer-events: none;
    	cursor: default;
    	color: #BA1D29;
-   	font-size: 72pt;
+   	font-size: 68pt;
 }
 
 .bartending {
 	background-color: #FF6F5B;
 	color: #1D2529;
+	text-transform: uppercase;
+	font-size: 11px
+	letter-spacing: .9px;
 }
 
 .serving {
 	background-color: #2A99D4;
 	color: #1D2529;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+
 }
 
-.navbar-serving {
-	background-color: ;
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 19px;
+  font-weight: bold;
+
 }
