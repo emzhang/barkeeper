@@ -902,6 +902,7 @@ th {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+
 }
 html {
   font-size: 62.5%;
@@ -1386,8 +1387,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -3853,13 +3853,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+  padding: 13px 30px;
+  font-size: 16px;
+  line-height: 18px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+}
+
+.navbar-brand-serving:hover,
+.navbar-brand-serving:focus {
+  background: #2A99D4;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

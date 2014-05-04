@@ -17,10 +17,6 @@ font-family: 'ProximaNova', sans-serif;
 src: url('../fonts/Proxima_Nova_Regular.otf');
 }
 
-/*body {
-	font-family: 'Open Sans', sans-serif;
-
-}*/
 
 .ui-loader{
 	color:white;
@@ -65,4 +61,14 @@ src: url('../fonts/Proxima_Nova_Regular.otf');
   font-size: 19px;
   font-weight: bold;
 
+}
+
+.serving-switch {
+	border-radius: 50px; 
+	background: transparent; 
+	border: 4px solid #2A99D4;
+}
+.serving-switch:hover,
+.serving-switch:focus {
+	background: #2A99D4 !important; 
 }
