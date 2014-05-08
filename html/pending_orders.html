@@ -29,50 +29,33 @@
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
 
-     <style type="text/css">
-           .navbar {
-        background-color: #6B90D4;
-        border: 0;
-        
-      }
-
-      .navbar a {
-        color: white !important;
-      }
-      </style>
+    
       <title>Pending Orders</title>
   </head>
 
   <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
-      <div class="container">
 
+      <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="#">Barkeeper</a>
             </div>
-            <div class="navbar-collapse collapse in" style="height: auto;">
-              <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="./choose_mode_B.html" rel="external" style="background-color: #6B90D4">Home</a></li>-->
-                <li><a href="./pending_orders.html" rel="external" style="background-color: #6B90D4;">Home</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
-                <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
-                <li><a href="./index.html" rel="external" style="background-color: #6B90D4;">Logout</a></li>
-              </ul>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
+            </div>
+
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
         </div>
+        </div>
 
-      </div>
-    </div>
+      </div> 
     <div class="container">
 
 
@@ -81,28 +64,28 @@
   <div class="jumbotron">
     <h1>All Orders </h1>
 
-    <h6><button type="button" class="btn btn-default btn-md">
-        <span class='glyphicon glyphicon-plus'></span> <a href="drink_selection.html">Quick Add Drink</a>
-    </button></h6>
+    <h6><a class="btn serving btn-default btn-blue" href="./drink_selection.html" role="button" >
+         + Quick Add Drink
+    </a></h6>
     <div class="text-left">
     <div class="panel-group" id="accordion" >
 
    <div class="panel panel-success">
     <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
-      <h4 class="panel-title">
+      <h4 class="panel-title" style>
         <a class="accordion-toggle">
           Ready to Serve
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse">
-      <ul class="list-group">
+    <div id="collapseOne" class="panel-collapse ">
+      <!-- <ul class="list-group"> -->
        
-        <li class="list-group-item">
+        <!-- <li class="list-group-item"> -->
           <div class="panel panel-default">
             <div class="panel-heading"> <b> Bitdiddle, Ben</b> <span class="addButtonName" id="Bitdiddle">
-              <button type="button" class="btn btn-default btn-sm">
-        <span class='glyphicon glyphicon-plus'></span> Add Drink
+              <button type="button" class="btn serving btn-blue btn-xs">
+        + Add Drink
     </button>
 
             </span></div>
@@ -115,8 +98,8 @@
               </ul>
             <!-- </div> -->
           </div>
-        </li>
-      </ul>
+        <!-- </li> -->
+      <!-- </ul> -->
     </div>
   </div>
 
@@ -130,11 +113,11 @@
     </div>
 
     <div id="collapseTwo" class="panel-collapse collapse">
-      <ul class="list-group">
-        <li class="list-group-item">
+      <!-- <ul class="list-group"> -->
+        <!-- <li class="list-group-item"> -->
           <div class="panel panel-default">
             <div class="panel-heading"><b>Zhang, Emily</b><span class="addButtonName" id="Zhang">
-              <button type="button" class="btn btn-default btn-sm">
+              <button type="button" class="btn serving btn-blue btn-xs">
         <span class='glyphicon glyphicon-plus'></span>Add Drink
     </button>
 
@@ -154,11 +137,11 @@
                 </a>
               </ul>
           </div>
-        </li>
-        <li class="list-group-item">
+        <!-- </li> -->
+        <!-- <li class="list-group-item"> -->
           <div class="panel panel-default">
             <div class="panel-heading"><b>Shuman, Drew </b><span class="addButtonName" id="Shuman">
-              <button type="button" class="btn btn-default btn-sm">
+              <button type="button" class="btn serving btn-blue btn-xs">
         <span class='glyphicon glyphicon-plus'></span> Add Drink
     </button>
 
@@ -178,8 +161,8 @@
                 </a>
               </ul>
           </div>
-        </li>
-      </ul>
+        <!-- </li> -->
+      <!-- </ul> -->
 
     </div>
   </div>
@@ -193,12 +176,12 @@
     </div>
 
     <div id="collapseThree" class="panel-collapse collapse">
-          <ul class="list-group" id="demo">
+          <!-- <ul class="list-group" id="demo"> -->
        
-        <li class="list-group-item">
+        <!-- <li class="list-group-item"> -->
           <div class="panel panel-default">
             <div class="panel-heading"><b>Paggi, Nick</b> <span class="addButtonName" id="Paggi">
-              <button type="button" class="btn btn-default btn-sm">
+              <button type="button" class="btn serving btn-blue btn-xs">
         <span class='glyphicon glyphicon-plus'></span> Add Drink
     </button>
 
@@ -210,8 +193,8 @@
                 </a>
               </ul>
           </div>
-        </li>
-      </ul>
+        <!-- </li> -->
+      <!-- </ul> -->
     </div>
   </div>
   <div class="panel panel-info">
@@ -223,12 +206,12 @@
       </h4>
     </div>
     <div id="collapseFour" class="panel-collapse collapse">
-     <ul class="list-group">
+     <!-- <ul class="list-group"> -->
        
-        <li class="list-group-item">
+        <!-- <li class="list-group-item"> -->
           <div class="panel panel-default">
             <div class="panel-heading"><b>Laverty, Katie</b> <span class="addButtonName" id="Laverty">
-              <button type="button" class="btn btn-default btn-sm">
+              <button type="button" class="btn serving btn-blue btn-xs">
         <span class='glyphicon glyphicon-plus'></span> Add Drink
     </button>
 
@@ -240,8 +223,8 @@
                 </a>
               </ul>
           </div>
-        </li>
-      </ul>
+        <!-- </li> -->
+      <!-- </ul> -->
     </div>
   </div>
 </div>
@@ -263,7 +246,7 @@
       $(function(){
         $.extend({
           getUrlVars : function() {
-              console.log(window.location.href);
+              // console.log(window.location.href);
               var vars = [], hash;
               var hashes = window.location.href.slice(
                       window.location.href.indexOf('?') + 1).split('&');

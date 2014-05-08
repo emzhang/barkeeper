@@ -28,44 +28,36 @@
     <!-- Jumbotron template CSS  -->
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
 
-     <title>Choose Mode</title>
-      <style>
-        @font-face
-        {
-        font-family: 'Proxima Nova' sans-serif;
-        src: url('../fonts/Proxima_Nova_Regular.otf');
+     <title>Login to Barkeeper</title>
 
-        }
-      </style>
   </head>
-  
+
 
   <body ontouchmove="BlockMove(event);">
-    <div class="navbar-wrapper">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <a class="navbar-brand title" href="#">Barkeeper</a>
-            </div>
-            <!-- <a class="navbar-brand pull-right" href="./index.html"> Logout</a> -->
-          </div>
-        </div>
-
-      </div>
+    
+    <!-- </div> -->
     <div class="container">
 
-<!-- </>  -->
+<!-- </header>  -->
 
       <div class="jumbotron">
-        <h3>Welcome to</h3> <a class="barkeeper-title" href="#">Barkeeper</a>
-        <h3>Today I am...</h3>
-        <a class="btn btn-red btn-lg bartending" href="./order_queue.html" role="button">Bartending</a>
-   
-       <a class="btn btn-blue btn-lg serving" href="./pending_orders.html" role="button">Serving</a>
+        <h1>Welcome to <a class="title" href="#">Barkeeper</a> </h1>
+
+        <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="email" class="form-control" placeholder="Name"  autofocus="">
+        <input type="password" class="form-control" placeholder="Password">
+      	<a class="btn btn-lg btn-primary btn-block" href="./choose_mode.html" role="button">Sign in</a>
+      </form>
+        
+          
+       
       </div>
 
 
@@ -77,6 +69,5 @@
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-
   </body>
 </html>

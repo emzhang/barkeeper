@@ -53,6 +53,14 @@
         width: 40px;
         height: 40px;
         margin-left: 10px;
+        border-radius: 50px;
+      }
+
+      body {
+        /*font-size: 24px;*/
+        /*font-weight: bold;*/
+        text-decoration: uppercase;
+
       }
 
       input {
@@ -64,6 +72,7 @@
 
       .jumbotron .btn {
         padding: inherit !important;
+
       }
 
       button {
@@ -81,7 +90,7 @@
       }
       
       li[role="heading"]{
-        background-color: #B8B8B8;
+        background-color: #A3B9C4;
         
         font-weight: bold;
         padding-left: 10px;
@@ -96,7 +105,7 @@
         top: 0;
         width: 300px;
         height: 100%;
-        float: right;
+        /*float: right;*/
         background:#1D8C00;
         text-align: center;
       }
@@ -132,60 +141,36 @@
         font-weight: bold;
       }
 
-      button {
+      #checkout_btn {
         margin:auto;
+        
       }
       
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
-    <div class="navbar-wrapper">
-      <div class="container">
+   <div class="navbar-wrapper">
 
+      <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#" rel="external">Barkeeper</a>
+              <a class="navbar-brand title" href="#">Barkeeper</a>
             </div>
-            <div class="navbar-collapse collapse in" style="height: auto;">
-              <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="./choose_mode_B.html" rel="external" style="background-color: #6B90D4">Home</a></li>-->
-                <li><a href="./pending_orders.html" rel="external" style="background-color: #6B90D4;">Home</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
-                <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
-                <li><a href="./index.html" rel="external" style="background-color: #6B90D4;">Logout</a></li>
-
-                <!-- for use if we want dropdown in menu-->
-
-                
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
-
-              </ul>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
+            </div>
+
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
         </div>
+        </div>
 
-      </div>
-    </div>
-
+      </div>  
 
     <div class="jumbotron">
       <div id="dead" class="col-md-12"></div>
@@ -197,8 +182,8 @@
     </div>
 
     <div class="dropdown-menu-right" id="checkout">
-      <p style="text-align: center;">Checkout </br> Total: <span id="total"> </span></p>
-      <button>Submit</button>
+      <p>Checkout </br> Total: <span id="total"> </span></p>
+      <button id="checkout_btn">Submit</button>
       <table id="checkout_table">
         <tr>
           <th>Drink</th>
@@ -364,8 +349,10 @@
           removeBtn.attr("field", ID);
 
           removeBtn.css("margin-left", "10px");
-          removeBtn.addClass("btn-danger");
           removeBtn.addClass("btn");
+          removeBtn.addClass("btn-blue");
+          removeBtn.addClass("serving");
+          removeBtn.addClass("btn-lg");
           removeBtn.css("width", "100px");
           removeBtn.css("height", "40px");
 
