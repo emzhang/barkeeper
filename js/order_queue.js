@@ -1,5 +1,6 @@
 
       $('#queue').disableSelection();
+      localStorage.setItem("name","Robert Miller")
     	var numdrinks=0;
       var downX=1000000;
       var downY=1000000;
