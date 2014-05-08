@@ -88,7 +88,7 @@
     </div>
     <div class="container">
         <div class="jumbotron">
-            <h1>Tab for <br/> Nick Paggi</h1>
+            <h1>Tab for <br/> <span id="name">Nick Paggi</span></h1>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table class="table">
@@ -123,5 +123,32 @@
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $.extend({
+          getUrlVars : function() {
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+        var first = $.getUrlVar("first");
+        var last = $.getUrlVar("last");
+        var name = first + " " + last;
+        $("#name").html(name);
+      });
+
+    </script>
   </body>
 </html>

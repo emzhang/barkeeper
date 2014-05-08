@@ -142,9 +142,9 @@
         font-weight: bold;
       }
 
-      #checkout_btn {
+      .btn {
         margin:auto;
-
+        background-color: 
       }
       
     </style>
@@ -183,8 +183,10 @@
     </div>
 
     <div class="dropdown-menu-right" id="checkout">
-      <p>Checkout </br> Total: <span id="total"> </span></p>
-      <p><button id="checkout_btn" class="btn btn-lg">Submit</button></p>
+      <p style="text-align: center;">Checkout </br> Total: <span id="total"> </span></p>
+      <p><button id="tab_btn" class="btn btn-default">ADD TO TAB</button>
+        <button id="pay_btn" class="btn btn-default">PAY NOW</button>
+      </p>
       <table id="checkout_table">
         <tr>
           <th>Drink</th>
@@ -373,7 +375,8 @@
 
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
-        $("#checkout").on("click", function(){
+
+        var makeOrderString = function(){
           var drinks = {};
 
           var elems = $("td");
@@ -382,14 +385,34 @@
             order[$(elems[i]).html()] = [ $(elems[i+1]).html(), $(elems[i+2]).html()];
           }
 
-          console.log(order);
+          return JSON.stringify(order);
+        };
+
+
+
+        // $("#checkout").on("click", function(){
+        //   var drinks = {};
+
+        //   var elems = $("td");
+        //   var order = {};
+        //   for(var i = 0; i < elems.length; i += 3){
+        //     order[$(elems[i]).html()] = [ $(elems[i+1]).html(), $(elems[i+2]).html()];
+        //   }
+
+        //   console.log(order);
           
 
-          // TODO: this...doesn't work
-          // window.location.href = "./checkout.html?drinks="+JSON.stringify(order);
-        });
+        //   // TODO: this...doesn't work
+        //   // window.location.href = "./checkout.html?drinks="+JSON.stringify(order);
+        // });
 
         $("#checkout").animate({width: "toggle"});
+
+        $("#tab_btn").click(function(){
+          window.location.href = "./all_tabs.html?order=" + makeOrderString();
+        });
+
+
       });
     </script>
   </body>

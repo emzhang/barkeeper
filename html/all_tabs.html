@@ -76,6 +76,10 @@
       .navbar a {
         color: white !important;
       }
+
+      #tab {
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body ontouchmove="BlockMove(event);">
@@ -111,6 +115,7 @@
     
     <div class="jumbotron">
       <div id="dead" class="col-md-12"></div>
+      <button id="tab" class="btn btn-lg">NEW TAB</button>
       <div id="drinks">
 
         <ul id="mylistview" data-role="listview" data-autodividers="true">     
@@ -135,6 +140,23 @@
     <script type="text/javascript">
       $(function(){
 
+        $.extend({
+          getUrlVars : function() {
+              console.log(window.location.href);
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
 
         var tabKeys = Object.keys(tabs); 
         tabKeys.sort();
@@ -148,7 +170,16 @@
           });
         
         }
-      $( '#mylistview' ).listview( 'refresh' ).alphascroll();
+        $( '#mylistview' ).listview( 'refresh' ).alphascroll();
+
+        $("#tab").click(function(){
+          if($.getUrlVar("order") !== undefined){
+            var orderString = decodeURIComponent($.getUrlVar("order"));
+            var order = JSON.parse(orderString);
+            window.location.href = "./new_tab.html?order=" + JSON.stringify(order);
+          }
+        });
+
       });
     </script>
   </body>
