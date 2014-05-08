@@ -46,13 +46,10 @@
         
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand title" href="#">Barkeeper</a>
+              <a class="navbar-brand title" ref="./pending_orders.html" rel="external">Barkeeper</a>
             </div>
             <div class="navbar-header">
-              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
-            </div>
-            <div class="navbar-header">
-              <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
 
               <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
@@ -100,7 +97,7 @@
         
         $("#stateName").append("<div class='span12'><img src='../stateIDs/"+$.getUrlVar("state")+"' style='width:100%''></img></div>");
         $("#stateName").append("<div class='panel-heading span12' ></div>");
-        $("#stateName").append("<div class='span12'> <a class='btn btn-blue btn-lg serving' href='./id_check_b.html' role='button'>Select Another ID</a></div>");
+        $("#stateName").append("<div class='span12'> <a class='btn btn-blue btn-lg serving' href='./id_check_s.html' role='button'>Select Another ID</a></div>");
 
         var today = new Date();
          var displayDate=new Date();
