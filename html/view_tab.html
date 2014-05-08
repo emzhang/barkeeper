@@ -97,7 +97,7 @@
                                 <th><strong>Quantity</strong></th>
                                 <th><strong>Price</strong></th>
                         </tr>
-                        <tr>
+<!--                         <tr>
                             <td>Fireball</td>
                             <td>4</td>
                             <td>$5.99</td>
@@ -106,7 +106,7 @@
                             <td></td>
                             <td><strong>Total</strong></td>
                             <td><strong>$23.96</strong></td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>
@@ -147,6 +147,20 @@
         var last = $.getUrlVar("last");
         var name = first + " " + last;
         $("#name").html(name);
+
+        var orderString = decodeURIComponent($.getUrlVar("order"));
+        var order = JSON.parse(orderString);
+
+        console.log(order);
+
+        for(var drink in order){
+          var row = $("<tr></tr>");
+          row.append($("<td>" + drink + "</td>"));
+          row.append($("<td>" + order[drink][0] + "</td>"));
+          row.append($("<td>" + order[drink][1] + "</td>"));
+
+          $(".table").append(row);
+        }
       });
 
     </script>
