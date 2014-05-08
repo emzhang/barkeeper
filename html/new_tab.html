@@ -57,13 +57,10 @@
 
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand title" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="./pending_orders.html" rel="external">Barkeeper</a>
             </div>
             <div class="navbar-header">
-              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
-            </div>
-            <div class="navbar-header">
-              <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
 
               <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
@@ -81,18 +78,18 @@
 
         <div class="input-group">
             <span class="input-group-addon">First Name: </span>
-            <input type="text" class="form-control" placeholder="">
+            <input type="text" class="form-control" name="first" placeholder="">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Last Name: </span>
-            <input type="text" class="form-control" placeholder="">
+            <input type="text" class="form-control" name="last" placeholder="">
         </div>
         <div class="input-group">
             <span class="input-group-addon">Credit Card:</span>
           <input type="text" class="form-control" placeholder="**** **** **** ****">
         </div>
 
-        <a class="btn btn-blue btn-lg serving" href="./pending_orders.html?added=success" role="button" style="margin-top: 40px;">Submit</a>
+        <a class="btn btn-blue btn-lg serving" role="button" style="margin-top: 40px;">Submit</a>
 
       </div>
 
@@ -105,5 +102,36 @@
     <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $.extend({
+          getUrlVars : function() {
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+        if($.getUrlVar("order") !== undefined){
+          var orderString = decodeURIComponent($.getUrlVar("order"));
+          var order = JSON.parse(orderString);
+          $(".btn").click(function(){
+            window.location.href = "./view_tab.html?order=" + JSON.stringify(order) + "&added=success" + 
+              "&first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+          });
+        }
+      });
+
+    </script>
   </body>
 </html>

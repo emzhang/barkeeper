@@ -45,7 +45,7 @@
         
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand title" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="./order_queue.html" rel="external">Barkeeper</a>
             </div>
             <div class="navbar-header">
               <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
@@ -99,7 +99,7 @@
         
         $("#stateName").append("<div class='span12'><img src='../stateIDs/"+$.getUrlVar("state")+"' style='width:100%''></img></div>");
         $("#stateName").append("<div class='panel-heading span12' ></div>");
-        $("#stateName").append("<div class='span12'> <a class='btn btn-lg bartending' href='./id_check_b.html' role='button'>Select Another ID</a></div>");
+        $("#stateName").append("<div class='span12'> <a class='btn btn-red btn-lg bartending' href='./id_check_b.html' role='button'>Select Another ID</a></div>");
         var today = new Date();
          var displayDate=new Date();
          displayDate.setFullYear(today.getFullYear()-21);

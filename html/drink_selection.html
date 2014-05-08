@@ -72,8 +72,16 @@
       }
 
       .jumbotron .btn {
+        font-size: 16px;
+        line-height: 18px;
         padding: inherit !important;
 
+      }
+
+      .btn-blue {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
       }
 
       button {
@@ -142,9 +150,9 @@
         font-weight: bold;
       }
 
-      #checkout_btn {
+      .btn {
         margin:auto;
-
+        background-color: 
       }
       
     </style>
@@ -157,14 +165,14 @@
 
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand title" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="./pending_orders.html" rel="external">Barkeeper</a>
             </div>
             <div class="navbar-header">
-              <a class="navbar-brand" href="./id_check_b.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
-            <div class="navbar-header">
+           <!--  <div class="navbar-header">
               <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
-            </div>
+            </div> -->
 
               <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
@@ -183,8 +191,10 @@
     </div>
 
     <div class="dropdown-menu-right" id="checkout">
-      <p>Checkout </br> Total: <span id="total"> </span></p>
-      <p><button id="checkout_btn" class="btn btn-lg">Submit</button></p>
+      <p style="text-align: center;">Checkout </br> Total: <span id="total"> </span></p>
+      <p><button id="tab_btn" class="btn btn-default">ADD TO TAB</button>
+        <button id="pay_btn" class="btn btn-default">PAY NOW</button>
+      </p>
       <table id="checkout_table">
         <tr>
           <th>Drink</th>
@@ -373,7 +383,8 @@
 
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
-        $("#checkout").on("click", function(){
+
+        var makeOrderString = function(){
           var drinks = {};
 
           var elems = $("td");
@@ -382,14 +393,34 @@
             order[$(elems[i]).html()] = [ $(elems[i+1]).html(), $(elems[i+2]).html()];
           }
 
-          console.log(order);
+          return JSON.stringify(order);
+        };
+
+
+
+        // $("#checkout").on("click", function(){
+        //   var drinks = {};
+
+        //   var elems = $("td");
+        //   var order = {};
+        //   for(var i = 0; i < elems.length; i += 3){
+        //     order[$(elems[i]).html()] = [ $(elems[i+1]).html(), $(elems[i+2]).html()];
+        //   }
+
+        //   console.log(order);
           
 
-          // TODO: this...doesn't work
-          // window.location.href = "./checkout.html?drinks="+JSON.stringify(order);
-        });
+        //   // TODO: this...doesn't work
+        //   // window.location.href = "./checkout.html?drinks="+JSON.stringify(order);
+        // });
 
         $("#checkout").animate({width: "toggle"});
+
+        $("#tab_btn").click(function(){
+          window.location.href = "./all_tabs.html?order=" + makeOrderString();
+        });
+
+
       });
     </script>
   </body>
