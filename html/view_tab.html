@@ -30,15 +30,7 @@
     <link href="../css/checkout.css" rel="stylesheet">
 
     <style type="text/css">
-        .navbar {
-            background-color: #6B90D4;
-            border: 0;
-    
-        }
-
-      .navbar a {
-        color: white !important;
-      }
+     
 
       #tab {
         margin: 5px;
@@ -58,34 +50,27 @@
 
   <body ontouchmove="BlockMove(event);">
     <div class="navbar-wrapper">
-      <div class="container">
 
+      <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+        <!-- style="background-color:#1D2529;border-color:#1D2529;" -->
+
+        
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Barkeeper</a>
+              <a class="navbar-brand title" href="./pending_orders.html" rel="external">Barkeeper</a>
             </div>
-            <div class="navbar-collapse collapse in" style="height: auto;">
-              <ul class="nav navbar-nav">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
+            </div>
 
-                <li><a href="./pending_orders.html" rel="external" style="background-color: #6B90D4;">Home</a></li>
-                <li><a href="./order_queue.html" rel="external" style="background-color: #BF3330;">Switch to Bartending</a></li>
-                <li><a href="./id_check_s.html" rel="external">Check ID</a></li>
-                <li><a href="./all_tabs.html" rel="external" style="background-color: #6B90D4;">All Tabs</a></li>
-                <li><a href="./index.html" rel="external" style="background-color: #6B90D4;">Logout</a></li>
-              </ul>
-            </div>
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
         </div>
+        </div>
 
-      </div>
-    </div>
+      </div> 
     <div class="container">
         <div class="jumbotron">
             <h1>Tab for <br/> Nick Paggi</h1>
@@ -110,7 +95,7 @@
                     </table>
                 </div>
             </div>
-            <a class="btn btn-lg btn-primary" href="./drink_selection.html?tab=Paggi">+ Add drink </a>
+            <a class="btn btn-lg btn-blue serving" href="./drink_selection.html?tab=Paggi">+ Add drink </a>
         </div>
     </div>
 
