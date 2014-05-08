@@ -7,7 +7,7 @@
       var startswipe=null;
     	function addDrink(name, ingredients){
     		numdrinks+=1;
-			$("#queue").append("<div><div class='row under' id='under"+numdrinks+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row activeDrink' id=drink"+numdrinks+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
+			$("#queue").append("<div><div class='row under' id='under"+numdrinks+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row activeDrink' id=drink"+numdrinks+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='padding-top:5px;width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
     		);
     		var drinkname="#drink"+numdrinks;
     		var collapsename="#collapse"+numdrinks;
