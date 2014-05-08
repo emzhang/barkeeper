@@ -5,15 +5,8 @@
       var downX=1000000;
       var downY=1000000;
       var startswipe=null;
-<<<<<<< HEAD
     	function addDrink(index, name, ingredients, type){
-			$("#queue").append("<div><div class='row under' id='under"+index+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row "+type+"' id=drink"+index+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+index+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+index+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
-=======
-    	function addDrink(name, ingredients){
-    		numdrinks+=1;
-			$("#queue").append("<div><div class='row under' id='under"+numdrinks+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row activeDrink' id=drink"+numdrinks+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+numdrinks+"'><img style='padding-top:5px;width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+numdrinks+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>"
->>>>>>> 3a68eba5da9840b7630f108fab0a90ccfd3aff99
-    		);
+			$("#queue").append("<div><div class='row under' id='under"+index+"'><div class='col-xs-2'><h2>Done</h2></div><div class='col-xs-10'></div></div><div class='row "+type+"' id=drink"+index+"><div><div class='col-xs-2'><a class='btn-xs' href='./order_queue.html' role='button' id='btn"+index+"'><img style='width:60px;vertical-align:middle' src='../css/Kitchen-List-ingredients-icon.png'></img></a></div><div class='col-xs-10' align='left'><h2>"+name+"</h2></div></div><div id='collapse"+index+"' class='panel-collapse collapse in rectangle span12'><div class='panel-body'>"+ingredients+"</div></div></div></div>");
         var index=index;
     		var drinkname="#drink"+index;
     		var collapsename="#collapse"+index;
