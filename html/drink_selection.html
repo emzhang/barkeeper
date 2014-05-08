@@ -98,6 +98,7 @@
         height: 100%;
         float: right;
         background:#1D8C00;
+        text-align: center;
       }
 
       #checkout > p, #checkout > table {
@@ -105,6 +106,7 @@
         top: 20%;
         /*text-align: center;*/
         margin: 0 auto;
+        font-size: 20px;
 
       }
 
@@ -124,6 +126,14 @@
 
       .navbar a {
         color: white !important;
+      }
+
+      #total {
+        font-weight: bold;
+      }
+
+      button {
+        margin:auto;
       }
       
     </style>
@@ -188,7 +198,13 @@
 
     <div class="dropdown-menu-right" id="checkout">
       <p style="text-align: center;">Checkout </br> Total: <span id="total"> </span></p>
+      <button>Submit</button>
       <table id="checkout_table">
+        <tr>
+          <th>Drink</th>
+          <th>Qnty.</th>
+          <th>Price</th>
+        </tr>
       </table>
     </div>
     <!-- Loaded at the bottom of the page for faster page loads -->
@@ -372,14 +388,17 @@
         $("#checkout").on("click", function(){
           var drinks = {};
 
-          $.each($("input"), function(i, element){
-            if($(element).val() !== "0")
-              drinks[$(element).attr("drink")] = $(element).val();
-          });
-          console.log(drinks);
+          var elems = $("td");
+          var order = {};
+          for(var i = 0; i < elems.length; i += 3){
+            order[$(elems[i]).html()] = [ $(elems[i+1]).html(), $(elems[i+2]).html()];
+          }
+
+          console.log(order);
+          
 
           // TODO: this...doesn't work
-          window.location.href = "./checkout.html?drinks="+JSON.stringify(drinks);
+          // window.location.href = "./checkout.html?drinks="+JSON.stringify(order);
         });
 
         $("#checkout").animate({width: "toggle"});
