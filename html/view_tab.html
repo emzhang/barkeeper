@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <<meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
     <link rel="shortcut icon" href="../assets/favicon.ico">
 
     <!-- Bootstrap CSS  -->
@@ -37,6 +37,9 @@
       }
 
       #pay_now {
+        margin: 5px;
+      }
+      .serving {
         margin: 5px;
       }
     </style>
@@ -66,7 +69,9 @@
             <div class="navbar-header">
               <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
             </div>
-
+            <div class="navbar-header">
+            <a class="navbar-brand" href="./all_tabs.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">All Tabs</a>
+          </div>
               <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
           </div>
         </div>
@@ -97,7 +102,8 @@
                     </table>
                 </div>
             </div>
-            <a class="btn btn-lg btn-blue serving" href="./drink_selection.html"><span class="glyphicon glyphicon-plus"></span> Add drink </a>
+            <a class="btn btn-lg btn-blue serving" href="./pending_orders.html"><span class="glyphicon glyphicon-plus"></span> Add more drinks </a><a class="btn btn-lg btn-blue serving" href="./pending_orders.html"><span class="glyphicon glyphicon-check"></span> Confirm Order </a><br>
+            <a class="btn btn-lg btn-blue serving" href="./pending_orders.html"><span class="glyphicon glyphicon-usd"></span> Checkout </a>
         </div>
     </div>
 
