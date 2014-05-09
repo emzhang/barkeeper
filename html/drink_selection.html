@@ -31,7 +31,6 @@
     <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../js/alphascroll-master/jquery.mobile.alphascroll.css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
     
@@ -288,7 +287,7 @@
           numField.attr("drink", drinkKeys[i]);
           numField.attr("price", drinks[drinkKeys[i]][1]);
           // console.log("drink name", drinkName);
-          var addBtn = $("<button>+</button>");
+          var addBtn = $("<button><span class='glyphicon glyphicon-plus'></span></button>");
           addBtn.attr("drink", drinkKeys[i]);
           addBtn.attr("price", drinks[drinkKeys[i]][1]);
           addBtn.on("click", function(){
@@ -328,7 +327,7 @@
           addBtn.addClass("btn");
           addBtn.attr("field", ID);
             
-          var decBtn = $("<button>-</button>");
+          var decBtn = $("<button><span class='glyphicon glyphicon-minus'></span></button>");
           decBtn.attr("drink", drinkKeys[i]);
           decBtn.attr("price", drinks[drinkKeys[i]][1]);
           decBtn.on("click", function(){
