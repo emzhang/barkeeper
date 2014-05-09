@@ -133,14 +133,22 @@
         var order = tabs[first + " " + last];
         console.log(tabs);
 
+        var total = 0;
+
         for(var drink in order){
           var row = $("<tr></tr>");
           row.append($("<td>" + drink + "</td>"));
           row.append($("<td>" + order[drink][0] + "</td>"));
           row.append($("<td>" + order[drink][1] + "</td>"));
-
+          total += parseInt(order[drink][0]) * parseFloat(order[drink][1]); 
           $(".table").append(row);
         }
+
+        var row = $("<tr></tr>");
+        row.append($("<td></td>"));
+        row.append($("<td><strong>Total</strong></td>"));
+        row.append($("<td><strong>" + total + "</strong></td>"));
+        $(".table").append(row);
 
         delete localStorage["currentOrder"];
       });
