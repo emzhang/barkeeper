@@ -26,16 +26,11 @@
   <!-- Jumbotron template CSS  -->
   <link href="../css/jumbotron-narrow.css" rel="stylesheet">
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
   <link href="../css/default.css" rel="stylesheet">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
   <title>Pending Orders</title>
-  <style type="text/css">
 
-</style>
 </head>
 
 <body ontouchmove="BlockMove(event);">
@@ -48,7 +43,7 @@
             <a class="navbar-brand title" href="./index.html" rel="external">Barkeeper</a>
           </div>
           <div class="navbar-header">
-          <a class="navbar-brand" href="./pending_orders.html" rel="external"> <span class="glyphicon glyphicon-home white"></span> </a>
+            <a class="navbar-brand" href="./pending_orders.html" rel="external"> <span class="glyphicon glyphicon-home white"></span> </a>
           </div>
           <div class="navbar-header">
             <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
@@ -69,73 +64,73 @@
 
     <h6><a class="btn serving btn-default btn-blue" id="quickadd" role="button" ><span class="glyphicon glyphicon-plus"></span>
       Quick Add Drink
-   </a></h6>
-   <div class="text-left">
-    <div class="panel-group" id="accordion" >
+    </a></h6>
+    <div class="text-left">
+      <div class="panel-group" id="accordion" >
 
-     <div class="panel panel-info">
-      <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
-        <h4 class="panel-title" style>
-          <a class="accordion-toggle">
-            Ready to Serve
-          </a>
-        </h4>
+       <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
+          <h4 class="panel-title" style>
+            <a class="accordion-toggle">
+              Ready to Serve
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse">
+          <!--insert read to serve here-->
+        </div>
       </div>
-      <div id="collapseOne" class="panel-collapse">
-        <!--insert read to serve here-->
+
+      <div class="panel panel-info" >
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <h4 class="panel-title">
+            <a class="accordion-toggle">
+              Orders being made
+            </a>
+          </h4>
+        </div>
+
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <!--orders being made-->
+
+        </div>
+      </div>
+
+      <div class="panel panel-info">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          <h4 class="panel-title">
+            <a class="accordion-toggle">
+              Orders not yet started
+            </a>
+          </h4>
+        </div>
+
+        <div id="collapseThree" class="panel-collapse collapse">
+          <!-- not yet started -->
+
+
+
+        </div>
+      </div>
+      <div class="panel panel-info">
+
+
+
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          <h4 class="panel-title">
+            <a class="accordion-toggle">
+              Already Served
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <!-- already served-->
+
+        </div>
       </div>
     </div>
 
-    <div class="panel panel-info" >
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-        <h4 class="panel-title">
-          <a class="accordion-toggle">
-            Orders being made
-          </a>
-        </h4>
-      </div>
-
-      <div id="collapseTwo" class="panel-collapse collapse">
-        <!--orders being made-->
-
-      </div>
-    </div>
-
-    <div class="panel panel-info">
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-        <h4 class="panel-title">
-          <a class="accordion-toggle">
-            Orders not yet started
-          </a>
-        </h4>
-      </div>
-
-      <div id="collapseThree" class="panel-collapse collapse">
-        <!-- not yet started -->
-        
-
-
-      </div>
-    </div>
-    <div class="panel panel-info">
-
-
-
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-        <h4 class="panel-title">
-          <a class="accordion-toggle">
-            Already Served
-          </a>
-        </h4>
-      </div>
-      <div id="collapseFour" class="panel-collapse collapse">
-        <!-- already served-->
-
-      </div>
-    </div>
   </div>
-
-</div>
 
 
 
@@ -146,13 +141,16 @@
 <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/load.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="../js/writeOut.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+=======
+>>>>>>> c67431c4f606b5bbec3814cb52dc5bd82f42d942
 <script>
-$("#quickadd").click(function(){
-  localStorage.setItem("pendingOrderRequest","quickadd");
-  document.location.href="./drink_selection.html";
-});
+  $("#quickadd").click(function(){
+    localStorage.setItem("pendingOrderRequest","quickadd");
+    document.location.href="./drink_selection.html";
+  });
 
 
 
@@ -190,12 +188,13 @@ function addPerson(name,section){
           document.location.href="./drink_selection.html";
         });
       });
-};
-function addDrink(name,drink,quantity,section){
+    });
+  };
+  function addDrink(name,drink,quantity,section){
     var nameID = name.replace(/\s+/g, '')+section;
     var address="#drink"+nameID;
     $(address).append("<a class='list-group-item'><span class='badge'>"+quantity+"</span>"+drink+"</a>");
-}
+  }
 //addPerson("emily zhang","One");
 //addDrink("emily zhang","long island",10,"One");
 var ns={};
@@ -209,7 +208,7 @@ jQuery.each( notStarted, function( i, val ) {
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
-  });
+});
 jQuery.each( ns, function( i,val) {
   var name=i;
   addPerson(i,"Three")
@@ -228,7 +227,7 @@ jQuery.each( beingMade, function( i, val ) {
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
-  });
+});
 jQuery.each( ns, function( i,val) {
   var name=i;
   addPerson(i,"Two")
@@ -247,7 +246,7 @@ jQuery.each( madeDrinks, function( i, val ) {
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
-  });
+});
 jQuery.each( ns, function( i,val) {
   var name=i;
   addPerson(i,"One")
@@ -266,7 +265,7 @@ jQuery.each( servedDrinks, function( i, val ) {
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
-  });
+});
 jQuery.each( ns, function( i,val) {
   var name=i;
   addPerson(i,"Four")
