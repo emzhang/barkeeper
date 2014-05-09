@@ -151,13 +151,20 @@
             var tab = tabs[$(this).attr("name")];
             var order = JSON.parse(localStorage.getItem("currentOrder"));
 
+            var notStarted=JSON.parse(localStorage.getItem("notStarted"));
+
+            var drinkList=JSON.parse(localStorage.getItem("drinkList"));
             for(var drink in order){
               if(!tab.hasOwnProperty(drink)){
                 tab[drink] = order[drink];
               }else {
                 tab[drink][0] = parseInt(tab[drink][0]) + parseInt(order[drink][0]);
               }
-              
+
+              notStarted[localStorage.getItem("drinkCounter")] = [drink, drinkList[drink][0], order[drink][1], $(this).attr("name")];
+
+              localStorage.setItem("notStarted", JSON.stringify(notStarted));
+              localStorage.setItem("drinkCounter", parseInt(localStorage.getItem("drinkCounter")) + 1);
             }
             tabs[$(this).attr("name")] = tab;
             localStorage.setItem("tabs", JSON.stringify(tabs));
