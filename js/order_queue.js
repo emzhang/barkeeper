@@ -33,7 +33,7 @@
                     axis: "x",
                     //containment:[$(drinkname).parent.position.left,0,0,0],
                     start: function( event, ui ) {goForIt=false;},
-                    drag: function( event, ui ) {if (ui.position.left>95){
+                    drag: function( event, ui ) {if (ui.position.left>200){
                     if ($(drinkname).hasClass("mine")){$(drinkname).toggleClass('mine done').draggable("disable");}}},
                     stop: function(){if (kill){
                       $(drinkname).remove();
