@@ -137,7 +137,10 @@
 
 
             }
-            window.location.href = "./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+            var URL="./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+            console.log(URL);
+            console.log(input);
+            window.location.href = URL;
           });
       });
 
