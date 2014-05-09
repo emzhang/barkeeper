@@ -146,6 +146,10 @@
 <script type="text/javascript" src="../js/load.js"></script>
 <script type="text/javascript" src="../js/writeOut.js"></script>
 <script>
+  var one=0;
+  var two=0;
+  var three=0;
+  var four=0;
   $("#quickadd").click(function(){
     localStorage.setItem("pendingOrderRequest","quickadd");
     document.location.href="./drink_selection.html";
@@ -205,6 +209,7 @@ jQuery.each( notStarted, function( i, val ) {
   drinkMoves[name+"Three"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
+  three+=1;
 
 });
 jQuery.each( ns, function( i,val) {
@@ -224,7 +229,7 @@ jQuery.each( beingMade, function( i, val ) {
   drinkMoves[name+"Two"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
-
+  two+=1;
 });
 jQuery.each( ns, function( i,val) {
   var name=i;
@@ -243,7 +248,7 @@ jQuery.each( madeDrinks, function( i, val ) {
   drinkMoves[name+"One"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
-
+  one+=1;
 });
 jQuery.each( ns, function( i,val) {
   var name=i;
@@ -262,6 +267,7 @@ jQuery.each( servedDrinks, function( i, val ) {
   drinkMoves[name+"Four"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
+  four+=1;
 
 });
 jQuery.each( ns, function( i,val) {
