@@ -86,7 +86,7 @@
         <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
           <h4 class="panel-title" style>
             <a class="accordion-toggle">
-              Ready to Serve <span class="badge invert pull-right">42</span>
+              Ready to Serve <span id="badgeOne" class="badge invert pull-right">42</span>
             </a>
           </h4>
         </div>
@@ -99,7 +99,7 @@
         <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
           <h4 class="panel-title">
             <a class="accordion-toggle">
-              Orders being made <span class="badge invert pull-right">42</span>
+              Orders being made <span id="badgeTwo" class="badge invert pull-right">42</span>
             </a>
           </h4>
         </div>
@@ -114,7 +114,7 @@
         <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
           <h4 class="panel-title">
             <a class="accordion-toggle">
-              Orders not yet started <span class="badge invert pull-right">42</span>
+              Orders not yet started <span id="badgeThree" class="badge invert pull-right">42</span>
             </a>
           </h4>
         </div>
@@ -133,7 +133,7 @@
         <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
           <h4 class="panel-title">
             <a class="accordion-toggle">
-              Already Served <span class="badge invert pull-right">42</span>
+              Already Served <span id="badgeFour" class="badge invert pull-right">42</span>
             </a>
           </h4>
         </div>
@@ -288,6 +288,10 @@ jQuery.each( ns, function( i,val) {
     addDrink(name,i,val2,"Four");
   });
 });
+$("#badgeOne").html(one);
+$("#badgeTwo").html(two);
+$("#badgeThree").html(three);
+$("#badgeFour").html(four);
 
 </script>
 </html>
