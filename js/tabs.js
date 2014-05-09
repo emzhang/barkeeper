@@ -1,8 +1,8 @@
 
 var tabs = {
-  "Walter Menendez": "1000",
-  "Nick Paggi": "1000",
-  "Emily Zhang": "1000",
-  "Katie Laverty": "1000",
-  "Ben Bitdidle": "2000",
+  "Walter Menendez": {"Bloody Mary": ["1", "4.99"]},
+  "Nick Paggi": {"Bloody Mary": ["1", "4.99"]},
+  "Emily Zhang": {"Bloody Mary": ["1", "4.99"]},
+  "Katie Laverty": {"Bloody Mary": ["1", "4.99"]},
+  "Ben Bitdidle": {"Bloody Mary": ["1", "4.99"]}
 };
