@@ -147,7 +147,7 @@
         var row = $("<tr></tr>");
         row.append($("<td></td>"));
         row.append($("<td><strong>Total</strong></td>"));
-        row.append($("<td><strong>" + total + "</strong></td>"));
+        row.append($("<td><strong>" + parseFloat(Math.round(total* 100) / 100).toFixed(2) + "</strong></td>"));
         $(".table").append(row);
 
         delete localStorage["currentOrder"];
