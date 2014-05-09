@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Eliminate url and button bars if added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+   <!-- Choose how to handle the phone status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- Jumbotron template CSS  -->
+    <link href="../css/jumbotron-narrow.css" rel="stylesheet">
+
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+     <link href="../css/default.css" rel="stylesheet">
+
+    
+      <title>Pending Orders</title>
+  </head>
+
+  <body ontouchmove="BlockMove(event);">
+    <div class="navbar-wrapper">
+
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand title" href="./pending_orders.html" rel="external">Barkeeper</a>
+            </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
+            </div>
+
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
+          </div>
+        </div>
+        </div>
+
+      </div>
+
+      </div> 
+    <div class="container">
+
+  <div class="jumbotron">
+    <h1>All Orders </h1>
+
+    <h6><a class="btn serving btn-default btn-blue" href="./drink_selection.html" role="button" >
+         + Quick Add Drink
+    </a></h6>
+    <div class="text-left">
+    <div class="panel-group" id="accordion" >
+
+   <div class="panel panel-success">
+    <div class="panel-heading" data-toggle="collapse"data-parent="#accordion" href="#collapseOne">
+      <h4 class="panel-title" style>
+        <a class="accordion-toggle">
+          Ready to Serve
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse ">
+          <div class="panel panel-default">
+            <div class="panel-heading"> <b> Bitdiddle, Ben</b> <span class="addButtonName" id="Bitdiddle">
+              <button type="button" class="btn serving btn-blue btn-xs">
+        + Add Drink
+    </button>
+
+            </span></div>
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1000</span>
+                  Water
+                </a>
+              </ul>
+          </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info" >
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Orders being made
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>Zhang, Emily</b><span class="addButtonName" id="Zhang">
+              <button type="button" class="btn serving btn-blue btn-xs">
+        <span class='glyphicon glyphicon-plus'></span>Add Drink
+    </button>
+
+            </span></div>
+              <ul class="list-group">
+                <a class="list-group-item ">
+                  <span class="badge">1</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>Shuman, Drew </b><span class="addButtonName" id="Shuman">
+              <button type="button" class="btn serving btn-blue btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">5</span>
+                  Whiskey
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+                <a class="list-group-item">
+                  <span class="badge">10</span>
+                  Long Island
+                </a>
+              </ul>
+          </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Orders not yet started
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseThree" class="panel-collapse collapse">
+          <!-- <ul class="list-group" id="demo"> -->
+       
+        <!-- <li class="list-group-item"> -->
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>Paggi, Nick</b> <span class="addButtonName" id="Paggi">
+              <button type="button" class="btn serving btn-blue btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Fireball
+                </a>
+              </ul>
+          </div>
+        <!-- </li> -->
+      <!-- </ul> -->
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+      <h4 class="panel-title">
+        <a class="accordion-toggle">
+          Already Served
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel panel-default">
+            <div class="panel-heading"><b>Laverty, Katie</b> <span class="addButtonName" id="Laverty">
+              <button type="button" class="btn serving btn-blue btn-xs">
+        <span class='glyphicon glyphicon-plus'></span> Add Drink
+    </button>
+
+            </span></div>
+              <ul class="list-group">
+                <a class="list-group-item">
+                  <span class="badge">1</span>
+                  Appletini
+                </a>
+              </ul>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+    
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+    <!-- Loaded at the bottom of the page for faster page loads -->
+    <!-- Any new JS files should also be loaded here! -->
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+     <script>
+      $(function(){
+        $.extend({
+          getUrlVars : function() {
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+        if($.getUrlVar("added") !== undefined){
+          $("#demo").show();
+        } else $("#demo").hide();
+      });
+
+
+      $(function(){
+        $("#Bitdiddle").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Bitdiddle";
+        });
+      });
+
+      $(function(){
+        $("#Zhang").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Zhang";
+        });
+      });
+      $(function(){
+        $("#Shuman").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Shuman";
+        });
+      });
+
+      $(function(){
+        $("#Paggi").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Paggi";
+        });
+      });
+
+      $(function(){
+        $("#Laverty").on("click", function(){
+          window.location.href = "./drink_selection.html?tab=Laverty";
+        });
+
+      });
+    </script>
+  </body>
+</html>
