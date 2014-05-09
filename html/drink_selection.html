@@ -430,6 +430,7 @@
             console.log(localStorage.getItem("pendingOrderRequest"));
             var tabs = JSON.parse(localStorage.getItem("tabs"));
             var tab = tabs[localStorage.getItem("pendingOrderRequest")];
+            console.log(tab);
             var order = JSON.parse(localStorage.getItem("currentOrder"));
 
             var notStarted=JSON.parse(localStorage.getItem("notStarted"));
