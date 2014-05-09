@@ -115,3 +115,7 @@ src: url('../fonts/Proxima_Nova_Regular.otf');
 	font-weight: bold;
 	font-size: 36px;
 }
+
+.white, .white a {
+  color: #fff;
+}
