@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -77,17 +79,17 @@
     <script type="text/javascript" src="../js/tabs.js"></script>
     <script>
           localStorage.clear()
-          var served = {};
-          var made={};
+          var served = {7:["Gin and Tonic","Gin, tonic water",4.99,"Nick Paggi"],6:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"]};
+          var made={4:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"],5:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"]};
           var beingMade={2:["Leap Frog","Gin, ginger ale, lemon juice",4.99,"Nick Paggi"]};
-          var notStarted={1:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"]};
+          var notStarted={1:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"],3:["Gin and Tonic","Gin, tonic water",4.99,"Ben Bitdiddle"]};
           localStorage.setItem("drinkList",JSON.stringify(drinks));
           localStorage.setItem("tabs",JSON.stringify(tabs));
           localStorage.setItem("servedDrinks",JSON.stringify(served));
           localStorage.setItem("madeDrinks",JSON.stringify(made));
           localStorage.setItem("beingMade",JSON.stringify(beingMade));
           localStorage.setItem("notStarted",JSON.stringify(notStarted));
-          localStorage.setItem("drinkCounter",3);
+          localStorage.setItem("drinkCounter",8);
 
 
     </script>
