@@ -122,14 +122,15 @@
           }
         });
 
-        if($.getUrlVar("order") !== undefined){
-          var orderString = decodeURIComponent($.getUrlVar("order"));
-          var order = JSON.parse(orderString);
+
           $(".btn").click(function(){
-            window.location.href = "./view_tab.html?order=" + JSON.stringify(order) + "&added=success" + 
-              "&first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+
+            var tabs = JSON.parse(localStorage.getItem("tabs"));
+            var order = JSON.parse(localStorage.getItem("currentOrder"));
+            tabs[$("input[name='first']").val() + " " +  $("input[name='last']").val()] = order;
+            localStorage.setItem("tabs", JSON.stringify(tabs));
+            window.location.href = "./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
           });
-        }
       });
 
     </script>

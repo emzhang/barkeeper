@@ -136,14 +136,18 @@
           }
         });
 
+        var tabs = JSON.parse(localStorage.getItem("tabs"));
         var tabKeys = Object.keys(tabs); 
-        tabKeys.sort();
-        for(var i = 0; i < tabKeys.length; i++){
-          var nameNoSpaces=tabKeys[i].split(' ').join('');
-          $("#mylistview").append("<li class='list-group-item' id='"+nameNoSpaces+"'>"+tabKeys[i]+"</li>");
 
+        tabKeys.sort();
+
+        for(var i = 0; i < tabKeys.length; i++){
+
+          var nameNoSpaces=tabKeys[i].split(' ').join('');
+          $("#mylistview").append("<li class='list-group-item' id='"+nameNoSpaces+"' name='" + tabKeys[i]+"'>"+tabKeys[i]+"</li>");
+          
           $("#"+nameNoSpaces).on("click",function(event){
-              location.href = "./view_tab.html";
+              window.location.href = "./view_tab.html?first=" + $(this).attr("name").split(' ')[0] + "&last=" + $(this).attr("name").split(' ')[1];
               console.log("clicked");
           });
         
@@ -151,10 +155,11 @@
         $( '#mylistview' ).listview( 'refresh' ).alphascroll();
 
         $("#tab").click(function(){
-          if($.getUrlVar("order") !== undefined){
-            var orderString = decodeURIComponent($.getUrlVar("order"));
-            var order = JSON.parse(orderString);
-            window.location.href = "./new_tab.html?order=" + JSON.stringify(order);
+          var order = localStorage.getItem("currentOrder");
+          if(order !== undefined){
+          
+            
+            window.location.href = "./new_tab.html";
           }
         });
 

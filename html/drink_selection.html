@@ -418,7 +418,8 @@
         $("#checkout").animate({width: "toggle"});
 
         $("#tab_btn").click(function(){
-          window.location.href = "./all_tabs.html?order=" + makeOrderString();
+          localStorage.setItem("currentOrder", makeOrderString());
+          window.location.href = "./all_tabs.html";
         });
 
 

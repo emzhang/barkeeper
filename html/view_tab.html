@@ -133,8 +133,8 @@
         var name = first + " " + last;
         $("#name").html(name);
 
-        var orderString = decodeURIComponent($.getUrlVar("order"));
-        var order = JSON.parse(orderString);
+        var tabs = JSON.parse(localStorage.getItem("tabs"));
+        var order = tabs[first + " " + last];
 
 
         for(var drink in order){
@@ -145,6 +145,8 @@
 
           $(".table").append(row);
         }
+
+        delete localStorage["currentOrder"];
       });
 
     </script>
