@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+   <!--  <meta name="viewport" content="user-scalable=no, width=device-width" />
+ -->
+    <!-- Eliminate url and button bars if added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+   <!-- Choose how to handle the phone status bar -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Jumbotron template CSS  -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/new_tab.css" rel="stylesheet">
+
+
+    <!-- Remember to change this! -->
+    <title>New Tab</title>
+  </head>
+
+  <body ontouchmove="BlockMove(event);">
+    <div class="navbar-wrapper">
+
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand title" href="./index.html" rel="external">Barkeeper</a>
+            </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./pending_orders.html" rel="external"><span class="glyphicon glyphicon-home white"></span></a>
+            </div>
+            <div class="navbar-header">
+              <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
+            </div>
+            <div class="navbar-header">
+            <a class="navbar-brand" href="./all_tabs.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">All Tabs</a>
+          </div>
+
+              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving bartending-switch" href="./order_queue.html" rel="external">Bartending</a>
+          </div>
+        </div>
+        </div>
+
+      </div>  
+    <div class="container">
+
+<!-- </header>  -->
+
+      <div class="jumbotron" style="text-transform: uppercase">
+        <h1>New tab</h1>
+
+        <div class="input-group">
+            <span class="input-group-addon">First Name: </span>
+            <input type="text" class="form-control" name="first" placeholder="">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Last Name: </span>
+            <input type="text" class="form-control" name="last" placeholder="">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Credit Card:</span>
+          <input type="text" class="form-control" placeholder="**** **** **** ****">
+        </div>
+
+        <a class="btn btn-blue btn-lg serving" role="button" style="margin-top:40px;"><span class="glyphicon glyphicon-list-alt"></span> Create tab</a>
+
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+    <!-- Loaded at the bottom of the page for faster page loads -->
+    <!-- Any new JS files should also be loaded here! -->
+    <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $.extend({
+          getUrlVars : function() {
+              var vars = [], hash;
+              var hashes = window.location.href.slice(
+                      window.location.href.indexOf('?') + 1).split('&');
+              for ( var i = 0; i < hashes.length; i++) {
+                  hash = hashes[i].split('=');
+                  vars.push(hash[0]);
+                  vars[hash[0]] = hash[1];
+              }
+              return vars;
+          },
+          getUrlVar : function(name) {
+              return $.getUrlVars()[name];
+          }
+        });
+
+
+          $(".btn").click(function(){
+
+            var tabs = JSON.parse(localStorage.getItem("tabs"));
+            var order = JSON.parse(localStorage.getItem("currentOrder"));
+            tabs[$("input[name='first']").val() + " " +  $("input[name='last']").val()] = order;
+            var notStarted=JSON.parse(localStorage.getItem("notStarted"));
+
+            var drinkList=JSON.parse(localStorage.getItem("drinkList"));
+            var tab={};
+            for(var drink in order){
+
+                tab[drink] = order[drink];
+
+              notStarted[localStorage.getItem("drinkCounter")] = [drink, drinkList[drink][0], order[drink][1], $("input[name='first']").val() + " " + $("input[name='last']").val()];
+
+              localStorage.setItem("notStarted", JSON.stringify(notStarted));
+              localStorage.setItem("drinkCounter", parseInt(localStorage.getItem("drinkCounter")) + 1);
+              localStorage.setItem("tabs", JSON.stringify(tabs));
+
+
+            }
+            window.location.href = "./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+          });
+      });
+
+    </script>
+  </body>
+</html>
