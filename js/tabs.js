@@ -1,3 +1,4 @@
+
 var tabs = {
   "Walter Menendez": "1000",
   "Nick Paggi": "1000",
