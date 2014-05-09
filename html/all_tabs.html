@@ -147,8 +147,22 @@
           $("#mylistview").append("<li class='list-group-item' id='"+nameNoSpaces+"' name='" + tabKeys[i]+"'>"+tabKeys[i]+"</li>");
           
           $("#"+nameNoSpaces).on("click",function(event){
-              window.location.href = "./view_tab.html?first=" + $(this).attr("name").split(' ')[0] + "&last=" + $(this).attr("name").split(' ')[1];
-              console.log("clicked");
+            var tabs = JSON.parse(localStorage.getItem("tabs"));
+            var tab = tabs[$(this).attr("name")];
+            var order = JSON.parse(localStorage.getItem("currentOrder"));
+
+            for(var drink in order){
+              if(!tab.hasOwnProperty(drink)){
+                tab[drink] = order[drink];
+              }else {
+                tab[drink][0] = parseInt(tab[drink][0]) + parseInt(order[drink][0]);
+              }
+              
+            }
+            tabs[$(this).attr("name")] = tab;
+            localStorage.setItem("tabs", JSON.stringify(tabs));
+
+            window.location.href = "./view_tab.html?first=" + $(this).attr("name").split(' ')[0] + "&last=" + $(this).attr("name").split(' ')[1];
           });
         
         }

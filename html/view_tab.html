@@ -135,7 +135,7 @@
 
         var tabs = JSON.parse(localStorage.getItem("tabs"));
         var order = tabs[first + " " + last];
-
+        console.log(tabs);
 
         for(var drink in order){
           var row = $("<tr></tr>");
