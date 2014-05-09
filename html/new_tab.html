@@ -135,8 +135,9 @@
               localStorage.setItem("drinkCounter", parseInt(localStorage.getItem("drinkCounter")) + 1);
               localStorage.setItem("tabs", JSON.stringify(tabs));
 
-              window.location.href = "./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
+
             }
+            window.location.href = "./view_tab.html?first=" + $("input[name='first']").val() + "&last=" + $("input[name='last']").val(); 
           });
       });
 
