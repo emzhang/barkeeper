@@ -48,7 +48,7 @@
             <a class="navbar-brand title" href="./index.html" rel="external">Barkeeper</a>
           </div>
           <div class="navbar-header">
-          <a class="navbar-brand" href="./pending_orders.html" rel="external"><span class="glyphicon glyphicon-home white"></span></a>
+          <a class="navbar-brand" href="./pending_orders.html" rel="external"> <span class="glyphicon glyphicon-home white"></span> </a>
           </div>
           <div class="navbar-header">
             <a class="navbar-brand" href="./id_check_s.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Check ID</a>
@@ -67,8 +67,8 @@
   <div class="jumbotron">
     <h1>All Orders </h1>
 
-    <h6><a class="btn serving btn-default btn-blue" id="quickadd" role="button" >
-     + Quick Add Drink
+    <h6><a class="btn serving btn-default btn-blue" id="quickadd" role="button" ><span class="glyphicon glyphicon-plus"></span>
+      Quick Add Drink
    </a></h6>
    <div class="text-left">
     <div class="panel-group" id="accordion" >
@@ -158,7 +158,7 @@ $("#quickadd").click(function(){
 function addPerson(name,section){
   var nameID = name.replace(/\s+/g, '')+section;
   var name=name;
-  $("#collapse"+section).append("<div class='panel panel-default'><div class='panel-heading'><b>"+name+"</b> <span class='addButtonName' id='B"+nameID+"'><button type='button' class='btn serving btn-blue btn-xs'><span class='glyphicon glyphicon-plus'></span> Add Drink</button></span></div><ul class='list-group' id='drink"+nameID+"'></ul></div><!-- </li> --><!-- </ul> --></div>");
+  $("#collapse"+section).append("<div class='panel panel-default'><div class='panel-heading'><b>"+name+"</b> <span class='addButtonName' id='B"+nameID+"'><button type='button' class='btn serving btn-blue btn-default'><span class='glyphicon glyphicon-plus'></span> Add Drink</button></span></div><ul class='list-group' id='drink"+nameID+"'></ul></div><!-- </li> --><!-- </ul> --></div>");
    $(function(){
         $("#B"+nameID).on("click", function(){
           localStorage.setItem("pendingOrderRequest",name);
