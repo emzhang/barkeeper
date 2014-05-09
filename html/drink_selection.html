@@ -281,7 +281,7 @@
           
 
           var ID = makeID();
-          var numField = $('<input type="number" name="numDrinks" min="0" value="0">');
+          var numField = $('<input type="tel" name="numDrinks" min="0" value="0">');
           numField.attr("id", ID);
           numField.attr("drink", drinkKeys[i]);
           numField.attr("price", drinks[drinkKeys[i]][1]);
@@ -304,6 +304,7 @@
             var numDrinks = $("#" + $(this).attr("field")).val();
             numDrinks++;
             $("#" + $(this).attr("field")).val(numDrinks);
+          
             if( $("#checkout_table").find("tr[field=" + ID + "]").length === 0){
               var row = $("<tr></tr>");
               row.attr("drink", name);
@@ -326,16 +327,20 @@
           addBtn.attr("field", ID);
             
           var decBtn = $("<button>-</button>");
+          decBtn.attr("drink", drinkKeys[i]);
           decBtn.attr("price", drinks[drinkKeys[i]][1]);
           decBtn.on("click", function(){
-            console.log("drink name", drinkName);
-
+            var ID = $(this).attr("field");
+            var drinkName = drinkKeys[i];
+            //console.log("drink name", drinkName);
+            if (countDrinks()==0){return;}
 
             var numDrinks = $("#" + $(this).attr("field")).val();
             numDrinks--;
             numDrinks = Math.max(0, numDrinks);
             $("#" + $(this).attr("field")).val(numDrinks);
-
+            $("td[field=" + ID + "]").html(numDrinks);
+            $("#total").html(parseFloat(Math.round(computeTotal() * 100) / 100).toFixed(2));
             if(countDrinks() === 0){
               $("#checkout").animate({width: "toggle"});
             }
