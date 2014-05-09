@@ -90,7 +90,7 @@
                     </table>
                 </div>
             </div>
-            <a id="add" class="btn btn-lg btn-blue serving butts"><span class="glyphicon glyphicon-plus"></span> Add more drinks </a><a class="btn btn-lg btn-blue serving butts" href="./checkout.html"><span class="glyphicon glyphicon-check"></span> Checkout </a><br>
+            <a id="add" class="btn btn-lg btn-blue serving butts"><span class="glyphicon glyphicon-plus"></span> Add more drinks </a><a class="btn btn-lg btn-blue serving butts" id="checkout"><span class="glyphicon glyphicon-check"></span> Checkout </a><br>
             <a class="btn btn-lg btn-blue serving butts" href="./pending_orders.html"><span class="glyphicon glyphicon-list"></span> Pending Orders </a>
         </div>
     </div>
@@ -156,6 +156,17 @@
         $("#add").click(function(){
           localStorage.setItem("pendingOrderRequest", first + " " + last);
           window.location.href="./drink_selection.html";
+        });
+
+        $("#checkout").click(function(){
+
+          var r = confirm("Are you sure you want to checkout?");
+          if(r === true){
+            var tabs = JSON.parse(localStorage.getItem("tabs"));
+            delete tabs[first + " " + last];
+            localStorage.setItem("tabs", JSON.stringify(tabs));
+            window.location.href = "./pending_orders.html";
+          }
         });
       });
 
