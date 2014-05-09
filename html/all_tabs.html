@@ -164,10 +164,15 @@
                 tab[drink][0] = parseInt(tab[drink][0]) + parseInt(order[drink][0]);
               }
 
-              notStarted[localStorage.getItem("drinkCounter")] = [drink, drinkList[drink][0], order[drink][1], $(this).attr("name")];
+              for(var i = 0; i < parseInt(order[drink][0]); i++){
+                notStarted[localStorage.getItem("drinkCounter")] = [drink, drinkList[drink][0], order[drink][1], $(this).attr("name")];
+                localStorage.setItem("drinkCounter", parseInt(localStorage.getItem("drinkCounter")) + 1);
+              }
+
+              
+              
 
               localStorage.setItem("notStarted", JSON.stringify(notStarted));
-              localStorage.setItem("drinkCounter", parseInt(localStorage.getItem("drinkCounter")) + 1);
             }
             tabs[$(this).attr("name")] = tab;
             localStorage.setItem("tabs", JSON.stringify(tabs));
