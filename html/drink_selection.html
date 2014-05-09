@@ -238,7 +238,7 @@
 
         var countDrinks = function(){
           var total = 0;
-          $("input[type=number]").each(function(){
+          $("input[type=tel]").each(function(){
             total += parseInt($(this).val());
           });
 
@@ -333,10 +333,10 @@
           decBtn.on("click", function(){
             var ID = $(this).attr("field");
             var drinkName = drinkKeys[i];
-            //console.log("drink name", drinkName);
             if (countDrinks()==0){return;}
 
-            var numDrinks = $("#" + $(this).attr("field")).val();
+            var numDrinks = $("#"+ ID).val();
+            numDrinks = parseInt(numDrinks);
             numDrinks--;
             numDrinks = Math.max(0, numDrinks);
             $("#" + $(this).attr("field")).val(numDrinks);
