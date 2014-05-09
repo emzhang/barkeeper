@@ -146,6 +146,7 @@
 <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/load.js"></script>
+<script type="text/javascript" src="../js/writeOut.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script>
 $("#quickadd").click(function(){
@@ -158,6 +159,30 @@ $("#quickadd").click(function(){
 function addPerson(name,section){
   var nameID = name.replace(/\s+/g, '')+section;
   var name=name;
+  if (section=="One"){
+      $("#collapse"+section).append("<div class='panel panel-default'><div class='panel-heading'><b>"+name+"</b> <span class='addButtonName' id='B"+nameID+"'><button type='button' class='btn serving btn-blue btn-default'><span class='glyphicon glyphicon-plus'></span> Add Drink</button></span><span class='addButtonName' id='B"+nameID+"'><button type='button' id='F"+nameID+"' class='btn serving btn-blue btn-default'><span class='glyphicon glyphicon-check'></span> Finished Serving</button></span></div><ul class='list-group' id='drink"+nameID+"'></ul></div><!-- </li> --><!-- </ul> --></div>");
+       $(function(){
+            $("#B"+nameID).on("click", function(){
+              localStorage.setItem("pendingOrderRequest",name);
+              document.location.href="./drink_selection.html";
+            });
+          });
+       $(function(){
+            $("#F"+nameID).on("click", function(){
+              var switchDrinks=drinkMoves[name+"One"];
+              for (i in switchDrinks){
+                servedDrinks[switchDrinks[i]]=madeDrinks[switchDrinks[i]];
+                delete madeDrinks[switchDrinks[i]];
+                writeOut();
+                document.location.href="./pending_orders.html";
+              }
+            });
+          });
+
+    return;
+  }
+
+
   $("#collapse"+section).append("<div class='panel panel-default'><div class='panel-heading'><b>"+name+"</b> <span class='addButtonName' id='B"+nameID+"'><button type='button' class='btn serving btn-blue btn-default'><span class='glyphicon glyphicon-plus'></span> Add Drink</button></span></div><ul class='list-group' id='drink"+nameID+"'></ul></div><!-- </li> --><!-- </ul> --></div>");
    $(function(){
         $("#B"+nameID).on("click", function(){
@@ -174,10 +199,13 @@ function addDrink(name,drink,quantity,section){
 //addPerson("emily zhang","One");
 //addDrink("emily zhang","long island",10,"One");
 var ns={};
+var drinkMoves={};
 jQuery.each( notStarted, function( i, val ) {
   name=val[3];
   drink=val[0];
   if (ns[name]==null){ns[name]={};}
+  if (drinkMoves[name+"Three"]==null){drinkMoves[name+"Three"]=[];}
+  drinkMoves[name+"Three"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
@@ -195,6 +223,8 @@ jQuery.each( beingMade, function( i, val ) {
   name=val[3];
   drink=val[0];
   if (ns[name]==null){ns[name]={};}
+  if (drinkMoves[name+"Two"]==null){drinkMoves[name+"Two"]=[];}
+  drinkMoves[name+"Two"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
@@ -212,6 +242,8 @@ jQuery.each( madeDrinks, function( i, val ) {
   name=val[3];
   drink=val[0];
   if (ns[name]==null){ns[name]={};}
+  if (drinkMoves[name+"One"]==null){drinkMoves[name+"One"]=[];}
+  drinkMoves[name+"One"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
@@ -229,6 +261,8 @@ jQuery.each( servedDrinks, function( i, val ) {
   name=val[3];
   drink=val[0];
   if (ns[name]==null){ns[name]={};}
+  if (drinkMoves[name+"Four"]==null){drinkMoves[name+"Four"]=[];}
+  drinkMoves[name+"Four"].push(i);
   if (ns[name][drink]==null){ns[name][drink]=1;}
   else {ns[name][drink]+=1;}
 
