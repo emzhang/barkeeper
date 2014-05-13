@@ -29,6 +29,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
+     <link href="../css/onoffswitch.css" rel="stylesheet">
 
 
     <title>Order Queue</title>
@@ -64,6 +65,13 @@
     	<div class="jumbotron" id="queue">
         	<h1>Order Queue</h1>
    		</div>
+      <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <div class="onoffswitch-inner"></div>
+        <div class="onoffswitch-switch"></div>
+    </label>
+</div>
     <!-- </div> -->
     <script tyle="text/javascript" src="../js/load.js"></script>
     <script tyle="text/javascript" src="../js/writeOut.js"></script>
@@ -72,6 +80,11 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery.mobile-1.4.2.min.js"></script>
     <script type="text/javascript" src="../js/jquery.ui.touch-punch.min.js"></script>
+    <script>
+    $('.onoffswitch-label').click(function(){
+        $(this).parent().toggleClass('onoffswitch-checked');
+    });
+    </script>
     <script type="text/javascript" src="../js/order_queue.js"></script>
     
  </body>

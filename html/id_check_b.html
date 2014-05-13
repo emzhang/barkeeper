@@ -29,6 +29,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
+     <link href="../css/onoffswitch.css" rel="stylesheet">
     
 
     <!-- Remember to change this! -->
@@ -163,6 +164,13 @@
         <div class="list-group">
         </div>
       </div>
+<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <div class="onoffswitch-inner"></div>
+        <div class="onoffswitch-switch"></div>
+    </label>
+</div>
     </div>
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
@@ -173,7 +181,11 @@
     <script type="text/javascript" src="../js/alphascroll-master/jquery.mobile.alphascroll.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/drinks.js"></script>
-    
+    <script>
+    $('.onoffswitch-label').click(function(){
+        $(this).parent().toggleClass('onoffswitch-checked');
+    });
+    </script>
     <script type="text/javascript">
       $(function(){
 
