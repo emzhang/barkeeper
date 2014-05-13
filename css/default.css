@@ -1,3 +1,10 @@
+.onoffswitch-checked .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checked .onoffswitch-switch {
+    right: 0px; 
+}
 .addButtonName {
 	float: right;
 }
