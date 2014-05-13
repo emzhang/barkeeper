@@ -29,7 +29,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
      <link href="../css/default.css" rel="stylesheet">
-
+     <link href="../css/onoffswitch.css" rel="stylesheet">
     <!-- Remember to change this! -->
     <title>ID Check</title>
   </head>
@@ -57,7 +57,13 @@
               <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
             </div>
 
-              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving serving-switch" href="./pending_orders.html" rel="external">Serving</a>
+              <div class="onoffswitch pull-right">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <div class="onoffswitch-inner"></div>
+        <div class="onoffswitch-switch"></div>
+    </label>
+</div>
           </div>
         </div>
         </div>
@@ -84,6 +90,10 @@
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script>
+    $('.onoffswitch-label').click(function(){
+            $(this).parent().toggleClass('onoffswitch-unchecked');
+        });
+    
     $.extend({
     getUrlVars : function() {
         var vars = [], hash;

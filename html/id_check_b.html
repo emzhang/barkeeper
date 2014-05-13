@@ -87,7 +87,13 @@
               <a class="navbar-brand" href="./stock.html" rel="external" style="text-transform: uppercase; letter-spacing: 1.4px; font-size 13px;">Stock</a>
             </div>
 
-              <a class="navbar-header navbar-brand navbar-brand-serving pull-right serving serving-switch" href="./pending_orders.html" rel="external">Serving</a>
+              <div class="onoffswitch pull-right">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <div class="onoffswitch-inner"></div>
+        <div class="onoffswitch-switch"></div>
+    </label>
+</div>
           </div>
         </div>
         </div>
@@ -164,13 +170,7 @@
         <div class="list-group">
         </div>
       </div>
-<div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-        <div class="onoffswitch-inner"></div>
-        <div class="onoffswitch-switch"></div>
-    </label>
-</div>
+
     </div>
     <!-- Loaded at the bottom of the page for faster page loads -->
     <!-- Any new JS files should also be loaded here! -->
@@ -183,7 +183,7 @@
     <script type="text/javascript" src="../js/drinks.js"></script>
     <script>
     $('.onoffswitch-label').click(function(){
-        $(this).parent().toggleClass('onoffswitch-checked');
+        $(this).parent().toggleClass('onoffswitch-unchecked');
     });
     </script>
     <script type="text/javascript">
